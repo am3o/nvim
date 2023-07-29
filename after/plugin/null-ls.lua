@@ -3,6 +3,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
     sources = {
+        -- automatic actions
         null_ls.builtins.formatting.gofmt,
         null_ls.builtins.formatting.goimports,
     },
