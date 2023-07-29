@@ -72,4 +72,7 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- Plugin comments
+    use ('tpope/vim-commentary')
 end)
+
