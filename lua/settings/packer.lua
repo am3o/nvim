@@ -74,5 +74,9 @@ return require('packer').startup(function(use)
 
     -- Plugin comments
     use ('tpope/vim-commentary')
-end)
+
+    -- Plugin auto-completion quotes, parens, brackets
+   use ('Raimondi/delimitMate')
+
+ end)
 

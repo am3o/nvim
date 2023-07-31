@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/Joshua.Braun/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  delimitMate = {
+    loaded = true,
+    path = "/Users/Joshua.Braun/.local/share/nvim/site/pack/packer/start/delimitMate",
+    url = "https://github.com/Raimondi/delimitMate"
+  },
   harpoon = {
     loaded = true,
     path = "/Users/Joshua.Braun/.local/share/nvim/site/pack/packer/start/harpoon",
