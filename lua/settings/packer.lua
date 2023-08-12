@@ -4,19 +4,39 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use {
-        'wbthomason/packer.nvim'
+    use { -- Package manager
+        'wbthomason/packer.nvim',
     }
 
-    -- Plugin telescope
-    use {
+    use { -- Plugin lsp-zero
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+            -- Automatically install LSPs to stdpath for neovim
+            'neovim/nvim-lspconfig',
+            {
+                'williamboman/mason.nvim',
+                run = function()
+                    pcall(vim.api.nvim_command, 'MasonUpdate')
+                end,
+            },
+            'williamboman/mason-lspconfig.nvim',
+
+            -- Autocompletion
+            'hrsh7th/nvim-cmp',
+            'hrsh7th/cmp-nvim-lsp',
+            'L3MON4D3/LuaSnip',
+        }
+    }
+
+    use { -- Plugin telescope
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = {
+            'nvim-lua/plenary.nvim'
+        }
     }
 
-    -- Colorscheme rosé pine
-    use {
+    use { -- Colorscheme rosé pine
         'rose-pine/neovim',
         as = 'rose-pine',
         config = function()
@@ -24,47 +44,22 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- Plugin treesitter
-    use(
-    'nvim-treesitter/nvim-treesitter',
-    {
-        run = ':TSUpdate'
-    })
+    use 'theprimeagen/harpoon'
 
-    --  use('nvim-treesitter/playground')
-
-    -- Plugin harpoon
-    use('theprimeagen/harpoon')
-
-    -- Plugin lsp-zero
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        requires = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {
-                'williamboman/mason.nvim',
-                run = function()
-                    pcall(vim.api.nvim_command, 'MasonUpdate')
-                end,
-            },
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},     -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'L3MON4D3/LuaSnip'},     -- Required
+    use { -- Plugin treesitter
+        'nvim-treesitter/nvim-treesitter',
+        {
+            run = ':TSUpdate'
         }
     }
 
-    use('jose-elias-alvarez/null-ls.nvim')
 
-    -- Plugin scrolling behavior
-    use ('karb94/neoscroll.nvim')
 
-    -- Plugin Statusline
-    use {
+    use 'jose-elias-alvarez/null-ls.nvim'
+
+    use 'karb94/neoscroll.nvim'
+
+    use { -- Plugin Statusline
         'nvim-lualine/lualine.nvim',
         requires = {
             'nvim-tree/nvim-web-devicons',
@@ -73,10 +68,9 @@ return require('packer').startup(function(use)
     }
 
     -- Plugin comments
-    use ('tpope/vim-commentary')
+    use 'tpope/vim-commentary'
 
     -- Plugin auto-completion quotes, parens, brackets
-   use ('Raimondi/delimitMate')
-
+   use 'Raimondi/delimitMate'
  end)
 
