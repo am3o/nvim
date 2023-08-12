@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/Joshua.Braun/.local/share/nvim/site/pack/packer/start/delimitMate",
     url = "https://github.com/Raimondi/delimitMate"
   },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/Users/Joshua.Braun/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/Users/Joshua.Braun/.local/share/nvim/site/pack/packer/start/harpoon",
