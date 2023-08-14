@@ -4,8 +4,6 @@ lsp.preset("recommended")
 
 lsp.on_attach(function(_, bufnr)
     lsp.default_keymaps({buffer = bufnr})
-
-    vim.keymap.set('n', '<leader>gd', '<cmd>lua vim.lsp.buf.definiton()<cr>')
 end)
 
 -- (Optional) Configure lua language server for neovim
