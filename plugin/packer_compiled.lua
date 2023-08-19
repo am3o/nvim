@@ -186,6 +186,11 @@ _G.packer_plugins = {
     path = "/Users/Joshua.Braun/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
     url = "https://github.com/nvim-telescope/telescope-dap.nvim"
   },
+  ["telescope-lsp-handlers.nvim"] = {
+    loaded = true,
+    path = "/Users/Joshua.Braun/.local/share/nvim/site/pack/packer/start/telescope-lsp-handlers.nvim",
+    url = "https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/Joshua.Braun/.local/share/nvim/site/pack/packer/start/telescope.nvim",

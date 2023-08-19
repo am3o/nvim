@@ -55,6 +55,7 @@ return require('packer').startup(function(use)
             'nvim-lua/plenary.nvim'
         }
     }
+    use 'gbrlsnchs/telescope-lsp-handlers.nvim'
 
     use { -- Colorscheme rosé pine
         'rose-pine/neovim',
