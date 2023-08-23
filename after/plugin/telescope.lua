@@ -6,5 +6,4 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "[S]earch [H]elpta
 
 require('telescope').setup()
 
-require('telescope')
-    .load_extension('lsp_handlers')
+require('telescope').load_extension('lsp_handlers')
