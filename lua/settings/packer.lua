@@ -13,22 +13,28 @@ return require('packer').startup(function(use)
         branch = 'v2.x',
         requires = {
             -- Automatically install LSPs to stdpath for neovim
-            'neovim/nvim-lspconfig',
+            { 'neovim/nvim-lspconfig' },
             {
                 'williamboman/mason.nvim',
                 run = function()
                     pcall(vim.api.nvim_command, 'MasonUpdate')
                 end,
             },
-            'williamboman/mason-lspconfig.nvim',
+            { 'williamboman/mason-lspconfig.nvim' },
 
             -- Autocompletion
-            'hrsh7th/nvim-cmp',
-            'hrsh7th/cmp-nvim-lsp',
-            'L3MON4D3/LuaSnip',
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
+
+            -- Snippets
+            { 'L3MON4D3/LuaSnip' },
 
             -- Useful status updates for LSP
-            'j-hui/fidget.nvim'
+            { 'j-hui/fidget.nvim' }
         }
     }
 
