@@ -63,6 +63,7 @@ return require('packer').startup(function(use)
     }
 
     use 'gbrlsnchs/telescope-lsp-handlers.nvim'
+    use 'theprimeagen/harpoon'
 
     use { -- Colorscheme rosé pine
         'rose-pine/neovim',
@@ -70,15 +71,6 @@ return require('packer').startup(function(use)
         config = function()
             vim.cmd('colorscheme rose-pine')
         end
-    }
-
-    use 'theprimeagen/harpoon'
-
-    use { -- Plugin treesitter
-        'nvim-treesitter/nvim-treesitter',
-        {
-            run = ':TSUpdate'
-        }
     }
 
     use 'karb94/neoscroll.nvim'
