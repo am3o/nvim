@@ -8,6 +8,13 @@ return require('packer').startup(function(use)
         'wbthomason/packer.nvim',
     }
 
+    use { -- Plugin treesitter
+        'nvim-treesitter/nvim-treesitter',
+        {
+            run = ':TSUpdate'
+        }
+    }
+
     use { -- Plugin lsp-zero
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
@@ -48,19 +55,13 @@ return require('packer').startup(function(use)
     use 'theHamsta/nvim-dap-virtual-text'
     use 'nvim-telescope/telescope-dap.nvim'
 
-    use { -- Plugin treesitter
-        'nvim-treesitter/nvim-treesitter',
-        {
-            run = ':TSUpdate'
-        }
-    }
-
     use { -- Plugin telescope
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
         requires = {
             'nvim-lua/plenary.nvim'
         }
     }
+
     use 'gbrlsnchs/telescope-lsp-handlers.nvim'
 
     use { -- Colorscheme rosé pine
