@@ -65,13 +65,21 @@ return require('packer').startup(function(use)
     use 'gbrlsnchs/telescope-lsp-handlers.nvim'
     use 'theprimeagen/harpoon'
 
-    use {
+    use { -- Plugin go
         'ray-x/go.nvim',
         requires = {
             'ray-x/guihua.lua', -- recommended if need floating window support
             'neovim/nvim-lspconfig',
             'nvim-treesitter/nvim-treesitter',
         },
+    }
+
+    use {
+        "ThePrimeagen/refactoring.nvim",
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-treesitter/nvim-treesitter" }
+        }
     }
 
     use { -- Colorscheme rosé pine
