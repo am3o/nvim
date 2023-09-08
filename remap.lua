@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 vim.keymap.set("n", "<leader>vp", vim.cmd.Ex, { silent = true, desc = "[V]iew [P]roject" })
 vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, { silent = true, desc = "[F]ormat [F]ile" })
 
