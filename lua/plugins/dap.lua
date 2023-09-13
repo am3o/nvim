@@ -44,15 +44,11 @@ return {
     },
     {
         'leoluz/nvim-dap-go',
-        config = function()
-            require('dap-go').setup()
-        end
+        opts = {}
     },
     {
         'theHamsta/nvim-dap-virtual-text',
-        config = function()
-            require("nvim-dap-virtual-text").setup()
-        end
+        opts = {}
     },
     {
         'nvim-telescope/telescope-dap.nvim',
