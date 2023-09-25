@@ -1,33 +1,30 @@
 return {
     {
         -- Plugin lsp-zero
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        dependencies = {
-            -- Automatically install LSPs to stdpath for neovim
-            { 'neovim/nvim-lspconfig' },
-            {
-                'williamboman/mason.nvim',
-                build = function()
-                    pcall(vim.api.nvim_command, 'MasonUpdate')
-                end,
-            },
-            { 'williamboman/mason-lspconfig.nvim' },
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-nvim-lua' },
-
-            -- Snippets
-            { 'L3MON4D3/LuaSnip' },
-
-            -- ful status updates for LSP
-            { 'j-hui/fidget.nvim' }
+        {
+            'VonHeikemen/lsp-zero.nvim',
+            branch = 'v3.x'
         },
+
+        --- Uncomment these if you want to manage LSP servers from neovim
+        { 'williamboman/mason.nvim' },
+        { 'williamboman/mason-lspconfig.nvim' },
+
+        -- LSP Support
+        {
+            'neovim/nvim-lspconfig',
+            dependencies = {
+                { 'hrsh7th/cmp-nvim-lsp' },
+            },
+        },
+
+        -- Autocompletion
+        {
+            'hrsh7th/nvim-cmp',
+            dependencies = {
+                { 'L3MON4D3/LuaSnip' },
+            }
+        }
     },
     {
         -- Plugin treesitter
