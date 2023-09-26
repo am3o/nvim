@@ -1,6 +1,12 @@
-local lsp = require('lsp-zero').preset({})
-
+local lsp = require('lsp-zero')
 lsp.preset("recommended")
+
+lsp.set_sign_icons({
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = '»'
+})
 
 lsp.on_attach(function(_, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
@@ -16,44 +22,50 @@ lsp.format_on_save({
     }
 })
 
-lsp.set_sign_icons({
-    error = '✘',
-    warn = '▲',
-    hint = '⚑',
-    info = '»'
+require('mason').setup()
+require('mason-lspconfig').setup({
+    ensure_installed = { 'gopls', 'lua_ls', 'dockerls', 'terraformls', 'yamlls' },
+    handlers = {
+        lsp.default_setup,
+        lua_ls = function()
+            local lua_opts = lsp.nvim_lua_ls()
+            require('lspconfig').lua_ls.setup(lua_opts)
+        end,
+    }
 })
 
-vim.api.nvim_create_autocmd('BufWritePre', {
-    pattern = '*.go',
-    callback = function()
-        vim.lsp.buf.code_action({
-            context = {
-                only = { 'source.organizeImports' }
-            },
-            apply = true
-        })
-    end
-})
-
--- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-lsp.setup()
-
--- You need to setup `cmp` after lsp-zero
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
-
 cmp.setup({
-    mapping = {
-        -- `Enter` key to confirm completion
+    formatting = lsp.cmp_format(),
+    mapping = cmp.mapping.preset.insert({
+        -- scroll up and down the documentation window
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+
+        -- code completion
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
         -- Ctrl+Space to trigger completion menu
         ['<C-Space>'] = cmp.mapping.complete(),
 
         -- Navigate between snippet placeholder
-        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-    }
+        -- ['<C-f>'] = cmp.cmp_action().luasnip_jump_forward(),
+        -- ['<C-b>'] = cmp.cmp_action().luasnip_jump_backward(),
+    })
 })
+
+vim.diagnostic.config({
+    virtual_text = true
+})
+
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--     pattern = '*.go',
+--     callback = function()
+--         vim.lsp.buf.code_action({
+--             context = {
+--                 only = { 'source.organizeImports' }
+--             },
+--             apply = true
+--         })
+--     end
+-- })

@@ -3,27 +3,34 @@ return {
         -- Plugin lsp-zero
         {
             'VonHeikemen/lsp-zero.nvim',
-            branch = 'v3.x'
+            branch = 'v3.x',
+            lazy = true,
+            config = false,
         },
-
-        --- Uncomment these if you want to manage LSP servers from neovim
-        { 'williamboman/mason.nvim' },
-        { 'williamboman/mason-lspconfig.nvim' },
-
-        -- LSP Support
         {
-            'neovim/nvim-lspconfig',
-            dependencies = {
-                { 'hrsh7th/cmp-nvim-lsp' },
-            },
+            'williamboman/mason.nvim',
+            lazy = false,
+            config = true,
         },
 
         -- Autocompletion
         {
             'hrsh7th/nvim-cmp',
+            event = 'InsertEnter',
             dependencies = {
                 { 'L3MON4D3/LuaSnip' },
-            }
+            },
+        },
+
+        -- LSP
+        {
+            'neovim/nvim-lspconfig',
+            cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
+            event = { 'BufReadPre', 'BufNewFile' },
+            dependencies = {
+                { 'hrsh7th/cmp-nvim-lsp' },
+                { 'williamboman/mason-lspconfig.nvim' },
+            },
         }
     },
     {
