@@ -12,6 +12,7 @@ return {
             lazy = false,
             config = true,
         },
+        { 'williamboman/mason-lspconfig.nvim' },
 
         -- Autocompletion
         {
@@ -21,6 +22,11 @@ return {
                 { 'L3MON4D3/LuaSnip' },
             },
         },
+        { 'hrsh7th/cmp-nvim-lsp' },
+        { 'hrsh7th/cmp-buffer' },
+        { 'hrsh7th/cmp-path' },
+        { 'saadparwaiz1/cmp_luasnip' },
+        { 'hrsh7th/cmp-nvim-lua' },
 
         -- LSP
         {
@@ -31,7 +37,11 @@ return {
                 { 'hrsh7th/cmp-nvim-lsp' },
                 { 'williamboman/mason-lspconfig.nvim' },
             },
-        }
+        },
+
+        -- Snippets
+        { 'L3MON4D3/LuaSnip' },             -- Required
+        { 'rafamadriz/friendly-snippets' }, -- Optional
     },
     {
         -- Plugin treesitter

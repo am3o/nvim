@@ -53,6 +53,7 @@ cmp.setup({
         -- ['<C-b>'] = cmp.cmp_action().luasnip_jump_backward(),
     })
 })
+lsp.setup()
 
 vim.diagnostic.config({
     virtual_text = true
