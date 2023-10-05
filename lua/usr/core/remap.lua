@@ -9,3 +9,4 @@ vim.keymap.set("n", "<C-o>", "<C-o>zz")
 -- Search
 vim.keymap.set({"n", "v"}, "n", "nzz")
 vim.keymap.set({"n", "v"}, "N", "Nzz")
+
