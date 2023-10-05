@@ -24,7 +24,7 @@ lsp.format_on_save({
 
 require('mason').setup()
 require('mason-lspconfig').setup({
-    ensure_installed = { 'gopls', 'lua_ls', 'dockerls', 'terraformls', 'yamlls' },
+    ensure_installed = { 'gopls', 'lua_ls', 'dockerls', 'yamlls' },
     handlers = {
         lsp.default_setup,
         lua_ls = function()
@@ -59,14 +59,14 @@ vim.diagnostic.config({
     virtual_text = true
 })
 
--- vim.api.nvim_create_autocmd('BufWritePre', {
---     pattern = '*.go',
---     callback = function()
---         vim.lsp.buf.code_action({
---             context = {
---                 only = { 'source.organizeImports' }
---             },
---             apply = true
---         })
---     end
--- })
+vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = '*.go',
+    callback = function()
+        vim.lsp.buf.code_action({
+            context = {
+                only = { 'source.organizeImports' }
+            },
+            apply = true
+        })
+    end
+})
