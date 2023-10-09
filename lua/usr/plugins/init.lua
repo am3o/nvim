@@ -143,4 +143,8 @@ return {
         -- Plugin auto-completion quotes, parens, brackets
         'Raimondi/delimitMate'
     },
+    {
+        -- Plugin git-signs
+        'lewis6991/gitsigns.nvim'
+    },
 }
