@@ -23,6 +23,7 @@ require("lazy").setup(
         import = "usr.plugins"
     },
     {
+        lockfile = vim.fn.stdpath("config") .. "/lua/usr/lazy-lock.json",
         checker = {
             enabled = true
         },
