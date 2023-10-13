@@ -24,7 +24,12 @@ lsp.format_on_save({
 
 require('mason').setup()
 require('mason-lspconfig').setup({
-    ensure_installed = { 'gopls', 'lua_ls', 'dockerls', 'yamlls' },
+    ensure_installed = {
+        'gopls',
+        'lua_ls',
+        'dockerls',
+        'yamlls',
+    },
     handlers = {
         lsp.default_setup,
         lua_ls = function()
