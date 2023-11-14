@@ -19,7 +19,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- line wrapping
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- swap mechanism
 vim.opt.swapfile = false
