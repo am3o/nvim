@@ -40,12 +40,17 @@ require('mason-lspconfig').setup({
 })
 
 local cmp = require('cmp')
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
     formatting = lsp.cmp_format(),
     mapping = cmp.mapping.preset.insert({
         -- scroll up and down the documentation window
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
+
+        -- select items in the list
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 
         -- code completion
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
