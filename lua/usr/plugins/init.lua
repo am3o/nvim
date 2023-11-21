@@ -49,6 +49,10 @@ return {
         build = ':TSUpdate',
     },
     {
+        -- Plugin treesitter context
+        'nvim-treesitter/nvim-treesitter-context',
+    },
+    {
         -- Plugin dap
         "mfussenegger/nvim-dap",
     },
