@@ -113,6 +113,10 @@ return {
         },
     },
     {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" }
+    },
+    {
         -- Colorscheme rosé pine
         'rose-pine/neovim',
         name = 'rose-pine',
@@ -125,7 +129,7 @@ return {
     },
     {
         -- Plugin navigation scrolling
-        'karb94/neoscroll.nvim'
+        'karb94/neoscroll.nvim',
     },
     {
         -- Plugin comments
@@ -133,10 +137,10 @@ return {
     },
     {
         -- Plugin auto-completion quotes, parens, brackets
-        'Raimondi/delimitMate'
+        'Raimondi/delimitMate',
     },
     {
         -- Plugin git-signs
-        'lewis6991/gitsigns.nvim'
+        'lewis6991/gitsigns.nvim',
     },
 }
