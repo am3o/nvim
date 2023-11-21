@@ -53,6 +53,10 @@ return {
         'nvim-treesitter/nvim-treesitter-context',
     },
     {
+        -- Plugin spider navigation
+        "chrisgrieser/nvim-spider",
+    },
+    {
         -- Plugin dap
         "mfussenegger/nvim-dap",
     },
