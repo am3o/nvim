@@ -28,6 +28,7 @@ require('mason-lspconfig').setup({
         'gopls',
         'lua_ls',
         'dockerls',
+        'terraformls',
         'yamlls',
     },
     handlers = {
@@ -63,6 +64,7 @@ cmp.setup({
         -- ['<C-b>'] = cmp.cmp_action().luasnip_jump_backward(),
     })
 })
+
 lsp.setup()
 
 vim.diagnostic.config({
