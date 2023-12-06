@@ -29,6 +29,7 @@ require('mason-lspconfig').setup({
         'lua_ls',
         'dockerls',
         'terraformls',
+        'tsserver',
         'yamlls',
     },
     handlers = {
