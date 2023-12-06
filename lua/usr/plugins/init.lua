@@ -49,42 +49,30 @@ return {
         build = ':TSUpdate',
     },
     {
-        -- Plugin treesitter context
-        'nvim-treesitter/nvim-treesitter-context',
-    },
-    {
-        -- Plugin spider navigation
-        "chrisgrieser/nvim-spider",
-    },
-    {
-        -- Plugin dap
-        "mfussenegger/nvim-dap",
-    },
-    {
-        -- Plugin dap-ui
-        "rcarriga/nvim-dap-ui",
-        dependencies = {
-            "mfussenegger/nvim-dap"
-        },
-    },
-    {
-        "leoluz/nvim-dap-go"
-    },
-    {
-        'theHamsta/nvim-dap-virtual-text'
-    },
-    {
         -- Plugin telescope
         'nvim-telescope/telescope.nvim',
         tag = '0.1.2',
         dependencies = {
             'nvim-lua/plenary.nvim',
-            'gbrlsnchs/telescope-lsp-handlers.nvim'
+            'gbrlsnchs/telescope-lsp-handlers.nvim',
+            'nvim-treesitter/nvim-treesitter-context',
+            'nvim-telescope/telescope-fzf-native.nvim',
+            build = 'make'
+        },
+    },
+    {
+        -- Plugin dap-ui
+        'rcarriga/nvim-dap-ui',
+        dependencies = {
+            'mfussenegger/nvim-dap'
         },
     },
     {
         'nvim-telescope/telescope-dap.nvim',
         dependencies = {
+            'mfussenegger/nvim-dap',
+            'leoluz/nvim-dap-go',
+            'theHamsta/nvim-dap-virtual-text',
             'nvim-telescope/telescope.nvim',
         }
     },
@@ -94,23 +82,15 @@ return {
     },
     {
         -- Plugin go
-        "ray-x/go.nvim",
+        'ray-x/go.nvim',
         dependencies = { -- optional packages
-            "ray-x/guihua.lua",
-            "neovim/nvim-lspconfig",
-            "nvim-treesitter/nvim-treesitter",
+            'ray-x/guihua.lua',
+            'neovim/nvim-lspconfig',
+            'nvim-treesitter/nvim-treesitter',
         },
-        event = { "CmdlineEnter" },
-        ft = { "go", "gomod" },
+        event = { 'CmdlineEnter' },
+        ft = { 'go', 'gomod' },
         build = ":lua require('go.install').update_all_sync()", -- if you need to install/update all binaries
-    },
-    {
-        -- Plugin refactoring
-        "ThePrimeagen/refactoring.nvim",
-        dependencies = {
-            { "nvim-lua/plenary.nvim" },
-            { "nvim-treesitter/nvim-treesitter" }
-        },
     },
     {
         -- Plugin Statusline
@@ -121,8 +101,8 @@ return {
         },
     },
     {
-        "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" }
+        'folke/trouble.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
     {
         -- Colorscheme rosé pine
