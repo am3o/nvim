@@ -19,10 +19,8 @@ return {
             vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = "[S]earch [H]elptags" })
             vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 
-
-            telescope.setup()
-
             -- telescope.load_extension('lsp_handlers')
+            telescope.setup() 
         end
     },
     {
