@@ -19,14 +19,9 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 require("lazy").setup(
-    {
-        import = "usr.plugins"
-    },
+    { import = "usr.plugins" },
     {
         lockfile = vim.fn.stdpath("config") .. "/lua/usr/lazy-lock.json",
-        checker = {
-            enabled = true
-        },
         change_detection = {
             notify = false
         }
