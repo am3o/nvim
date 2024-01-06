@@ -1,8 +1,7 @@
 return {
     {
         "folke/tokyonight.nvim",
-        config = function()
-            require("tokyonight").setup({
+        opts = {
                 -- your configuration comes here
                 -- or leave it empty to use the default settings
                 style = "storm",        -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
@@ -17,8 +16,7 @@ return {
                     sidebars = "dark", -- style for sidebars, see below
                     floats = "dark",   -- style for floating windows
                 },
-            })
-        end
+            }
     },
     {
         "rose-pine/neovim",

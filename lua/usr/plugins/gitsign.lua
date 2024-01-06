@@ -1,7 +1,6 @@
 return {
     'lewis6991/gitsigns.nvim',
-    config = function()
-        require('gitsigns').setup {
+    opts = {
             signs                        = {
                 add          = { text = '│' },
                 change       = { text = '│' },
@@ -41,6 +40,5 @@ return {
             yadm                         = {
                 enable = false
             },
-        }
-    end
+    },
 }

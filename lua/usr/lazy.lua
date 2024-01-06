@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
         "git",
@@ -20,14 +21,20 @@ vim.g.maplocalleader = ' '
 
 require("lazy").setup(
     {
-        spec = "usr.plugins",
-        change_detection = { notify = false }
+        spec =  "usr.plugins" ,
+        change_detection = {
+            notify = false
+        },
     },
     {
         lockfile = vim.fn.stdpath("config") .. "/lua/usr/lazy-lock.json",
         change_detection = {
             notify = false
+        },
+        performance = {
+            cache = {
+                enabled = true,
+            },
         }
     }
-
 )
