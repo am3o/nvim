@@ -44,7 +44,6 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.signcolumn = "yes"
 
-
 -- turn on diagnostic
 vim.diagnostic.config({
     virtual_text = true
