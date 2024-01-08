@@ -4,11 +4,33 @@ return {
         tag = '0.1.5',
         dependencies = {
             'nvim-lua/plenary.nvim',
-            'gbrlsnchs/telescope-lsp-handlers.nvim',
             'nvim-treesitter/nvim-treesitter-context',
             'nvim-telescope/telescope-fzf-native.nvim',
+            'nvim-tree/nvim-web-devicons',
+            'debugloop/telescope-undo.nvim',
         },
-        config = function()
+        opts = {
+            extensions = {
+                fzf = {
+                    fuzzy = true,               -- false will only do exact matching
+                    override_generic_sorter = true, -- override the generic sorter
+                    override_file_sorter = true, -- override the file sorter
+                    case_mode = "smart_case",   -- or "ignore_case" or "respect_case"
+                },
+                undo = {
+                    side_by_side = true,
+                    layout_strategy = "vertical",
+                    layout_config = {
+                        preview_height = 0.8,
+                    },
+                    use_delta = true,
+                    diff_context_lines = vim.o.scrolloff,
+                    entry_format = "#$ID, $TIME",
+                    saved_only = true,
+                }
+            },
+        },
+        config = function(_, opts)
             local telescope = require('telescope')
             local builtin = require('telescope.builtin')
 
@@ -16,20 +38,15 @@ return {
             vim.keymap.set('n', '<leader>sif', builtin.live_grep, { desc = "[S]earch [I]nner [F]iles" })
             vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = "[S]earch [B]uffers" })
             vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = "[S]earch [H]elptags" })
+            vim.keymap.set('n', '<leader>u', function() telescope.extensions.undo.undo({ side_by_side = true }) end,
+                { desc = "[U]ndo" })
+            vim.keymap.set('n', '<C-u>', function() telescope.extensions.undo.undo({ side_by_side = true }) end,
+                { desc = "[U]ndo" })
             vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 
-            telescope.setup ({
-                extensions = {
-                    fzf = {
-                        fuzzy = true, -- false will only do exact matching
-                        override_generic_sorter = true, -- override the generic sorter
-                        override_file_sorter = true, -- override the file sorter
-                        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-                        -- the default case_mode is "smart_case"
-                    }
-                }
-            })
 
+            telescope.setup(opts)
+            telescope.load_extension('undo')
             telescope.load_extension('fzf')
 
             -- To get fzf loaded and working with telescope, you need to call

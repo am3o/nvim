@@ -23,7 +23,7 @@ return {
                 }
             })
 
-            lsp.on_attach(function(_, bufnr)
+            lsp.on_attach(function(client, bufnr)
                 local opts = { buffer = bufnr, remap = false }
 
                 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -100,6 +100,13 @@ return {
             local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
             cmp.setup({
+                sources = {
+                    { name = 'path' },
+                    { name = 'nvim_lsp' },
+                    { name = 'nvim_lua' },
+                    { name = 'luasnip', keyword_length = 2 },
+                    { name = 'buffer',  keyword_length = 3 },
+                },
                 formatting = lsp.cmp_format(),
                 mapping = cmp.mapping.preset.insert({
                     -- scroll up and down the documentation window
