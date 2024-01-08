@@ -3,17 +3,18 @@ return {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         config = function()
-            local lsp = require('lsp-zero')
+            local lsp_zero = require('lsp-zero')
+            lsp_zero.extend_lspconfig()
 
-            lsp.preset("recommended")
-            lsp.set_sign_icons({
+            lsp_zero.preset("recommended")
+            lsp_zero.set_sign_icons({
                 error = '✘',
                 warn = '▲',
                 hint = '⚑',
                 info = '»'
             })
 
-            lsp.format_on_save({
+            lsp_zero.format_on_save({
                 format_opts = {
                     async = false,
                     timeout_ms = 10000,
@@ -23,7 +24,7 @@ return {
                 }
             })
 
-            lsp.on_attach(function(client, bufnr)
+            lsp_zero.on_attach(function(client, bufnr)
                 local opts = { buffer = bufnr, remap = false }
 
                 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -40,7 +41,7 @@ return {
                 vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
             end)
 
-            lsp.setup()
+            lsp_zero.setup()
         end,
     },
     {
