@@ -12,10 +12,10 @@ return {
         opts = {
             extensions = {
                 fzf = {
-                    fuzzy = true,               -- false will only do exact matching
+                    fuzzy = true,                   -- false will only do exact matching
                     override_generic_sorter = true, -- override the generic sorter
-                    override_file_sorter = true, -- override the file sorter
-                    case_mode = "smart_case",   -- or "ignore_case" or "respect_case"
+                    override_file_sorter = true,    -- override the file sorter
+                    case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
                 },
                 undo = {
                     side_by_side = true,
@@ -36,21 +36,25 @@ return {
 
             vim.keymap.set('n', '<leader>saf', builtin.find_files, { desc = "[S]earch [A]round [F]iles" })
             vim.keymap.set('n', '<leader>sif', builtin.live_grep, { desc = "[S]earch [I]nner [F]iles" })
+            vim.keymap.set('n', '<leader>sg', builtin.git_files, { desc = "[S]earch [B]uffers" })
             vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = "[S]earch [B]uffers" })
             vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = "[S]earch [H]elptags" })
+
             vim.keymap.set('n', '<leader>u', function() telescope.extensions.undo.undo({ side_by_side = true }) end,
                 { desc = "[U]ndo" })
-            vim.keymap.set('n', '<C-u>', function() telescope.extensions.undo.undo({ side_by_side = true }) end,
-                { desc = "[U]ndo" })
-            vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-
+            vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 
             telescope.setup(opts)
-            telescope.load_extension('undo')
-            telescope.load_extension('fzf')
 
-            -- To get fzf loaded and working with telescope, you need to call
-            -- load_extension, somewhere after setup function:
+            local extensions = {
+                "undo",
+                "fzf"
+            }
+
+            for _, extension in ipairs(extensions) do
+                telescope.load_extension(extension)
+            end
+
             -- telescope.load_extension('lsp_handlers')
             -- telescope.load_extension("noice")
         end
