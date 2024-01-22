@@ -1,8 +1,8 @@
 local modules = {
-    "usr.lazy",
-    "usr.core",
+	"usr.lazy",
+	"usr.core",
 }
 
 for _, module in ipairs(modules) do
-    require(module)
+	require(module)
 end

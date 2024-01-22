@@ -1,3 +1,4 @@
 return {
-    'Raimondi/delimitMate',
+	"Raimondi/delimitMate",
+	enabled = false,
 }

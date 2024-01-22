@@ -23,7 +23,12 @@ return {
 			-- NOTE: adding a Note
 			-- FIXME: Another fix me
 			-- TODO: Show me again
-			vim.keymap.set("n", "<leader>td", ":TodoTelescope<CR>", { silent = true, desc = "toggle [T]o[D]o" })
+			vim.keymap.set(
+				"n",
+				"<leader>td",
+				":TodoTelescope<CR>",
+				{ silent = true, desc = "toggle [T]o[D]o" }
+			)
 		end,
 	},
 }

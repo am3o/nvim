@@ -46,5 +46,5 @@ vim.opt.signcolumn = "yes"
 
 -- turn on diagnostic
 vim.diagnostic.config({
-    virtual_text = true
+	virtual_text = true,
 })
