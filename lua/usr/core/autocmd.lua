@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 		local fileName = vim.api.nvim_buf_get_name(0)
 
 		vim.cmd(":silent !stylua " .. fileName)
-		vim.notify("Formating succesfully done", vim.log.levels.INFO, { title = "stylua" })
+		vim.notify("Formating succesfully done", vim.log.levels.DEBUG, { title = "stylua" })
 	end,
 	group = formating,
 })
@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	desc = "Auto-format Golang files",
 	callback = function()
 		require("go.format").goimport() -- goimport + gofmt
-		vim.notify("Formating successfully done", vim.log.levels.INFO, { title = "gofmt" })
+		vim.notify("Formating successfully done", vim.log.levels.DEBUG, { title = "gofmt" })
 	end,
 	group = formating,
 })
