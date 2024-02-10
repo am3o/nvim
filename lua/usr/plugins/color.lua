@@ -23,6 +23,7 @@ return {
 		opts = {
 			variant = "moon", -- auto, main, moon, or dawn
 			dark_variant = "moon", -- main, moon, or dawn
+			disable_background = false,
 			dim_inactive_windows = false,
 			extend_background_behind_borders = true,
 			styles = {
