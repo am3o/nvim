@@ -1,4 +1,4 @@
 return {
-	"Raimondi/delimitMate",
+	"direnv/direnv.vim",
 	enabled = true,
 }

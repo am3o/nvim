@@ -9,7 +9,7 @@ return {
 		cycle_results = true, -- cycle item list when reaching beginning or end of list
 		auto_close = true, -- automatically close the list when you have no diagnostics
 		auto_preview = true, -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
-		auto_fold = true, -- automatically fold a file trouble list at creation
+		auto_fold = false, -- automatically fold a file trouble list at creation
 		use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
 	},
 	config = function(_, opts)

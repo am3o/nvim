@@ -1,12 +1,28 @@
 return {
 	{
+		"folke/tokyonight.nvim",
+		enabled = true,
+		priority = 1000,
+		opts = {
+			style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+			transparent = true, -- Enable this to disable setting the background color
+			terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+			styles = {
+				comments = { italic = false },
+				keywords = { italic = false },
+				sidebars = "dark", -- style for sidebars, see below
+				floats = "dark", -- style for floating windows
+			},
+		},
+	},
+	{
 		"rose-pine/neovim",
 		name = "rose-pine",
 		lazy = false,
 		priority = 1000,
 		opts = {
 			variant = "moon", -- auto, main, moon, or dawn
-			dark_variant = "main", -- main, moon, or dawn
+			dark_variant = "moon", -- main, moon, or dawn
 			dim_inactive_windows = false,
 			extend_background_behind_borders = true,
 			styles = {
@@ -47,38 +63,10 @@ return {
 		},
 		config = function(_, opts)
 			require("rose-pine").setup(opts)
-
 			vim.cmd.colorscheme("rose-pine")
 
 			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 		end,
-	},
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-			transparent = false, -- Enable this to disable setting the background color
-			terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
-			styles = {
-				-- Style to be applied to different syntax groups
-				-- Value is any valid attr-list value for `:help nvim_set_hl`
-				comments = { italic = true },
-				keywords = { italic = true },
-				-- Background styles. Can be "dark", "transparent" or "normal"
-				sidebars = "dark", -- style for sidebars, see below
-				floats = "dark", -- style for floating windows
-			},
-		},
-	},
-	{
-		"craftzdog/solarized-osaka.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
 	},
 }

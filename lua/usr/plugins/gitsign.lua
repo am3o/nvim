@@ -41,4 +41,15 @@ return {
 			enable = false,
 		},
 	},
+	config = function(_, opts)
+		local gitSigns = require("gitsigns")
+		gitSigns.setup(opts)
+
+		vim.keymap.set("n", "<leader>gp", function()
+			gitSigns.preview_hunk()
+		end, { silent = true, desc = "[G]it [P]review" })
+		vim.keymap.set("n", "<leader>gb", function()
+			gitSigns.toggle_current_line_blame()
+		end, { silent = true, desc = "[G]it [B]lame" })
+	end,
 }
