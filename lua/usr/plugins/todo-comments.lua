@@ -18,17 +18,12 @@ return {
 			todo.setup(opts)
 
 			-- BUG: change the world
+			-- FIXME: Another fix me
 			-- PERF: slow down
 			-- HACK: use defer becaus of reasons
 			-- NOTE: adding a Note
-			-- FIXME: Another fix me
 			-- TODO: Show me again
-			vim.keymap.set(
-				"n",
-				"<leader>td",
-				":TodoTelescope<CR>",
-				{ silent = true, desc = "toggle [T]o[D]o" }
-			)
+			vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<cr>", { silent = true, desc = "[T]oggle [T]o[D]o" })
 		end,
 	},
 }
