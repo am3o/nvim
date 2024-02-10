@@ -6,6 +6,7 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-treesitter/nvim-treesitter-context" },
 			{ "nvim-telescope/telescope-fzf-native.nvim" },
+			{ "nvim-telescope/telescope-media-files.nvim" },
 			{ "nvim-tree/nvim-web-devicons" },
 			{ "debugloop/telescope-undo.nvim" },
 			{ "nvim-telescope/telescope-dap.nvim" },
@@ -25,6 +26,10 @@ return {
 					override_generic_sorter = true, -- override the generic sorter
 					override_file_sorter = true, -- override the file sorter
 					case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+				},
+				media_files = {
+					filetypes = { "png", "jpg", "mp4", "webm", "pdf" },
+					find_cmd = "rg",
 				},
 				undo = {
 					side_by_side = true,
@@ -46,8 +51,10 @@ return {
 			telescope.setup(opts)
 
 			local extensions = {
-				"undo",
 				"fzf",
+				"media_files",
+				"notify",
+				"undo",
 			}
 
 			for _, extension in ipairs(extensions) do
@@ -59,11 +66,13 @@ return {
 			vim.keymap.set("n", "<leader>sg", builtin.git_files, { desc = "[S]earch [B]uffers" })
 			vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch [B]uffers" })
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elptags" })
+			vim.keymap.set("n", "<leader>sm", builtin.man_pages, { desc = "[S]earch [M]an-Pages" })
 
 			vim.keymap.set("n", "<leader>u", function()
 				telescope.extensions.undo.undo({ side_by_side = true })
 			end, { desc = "[U]ndo" })
-			vim.keymap.set("n", "<C-p>", builtin.find_files, {})
+			vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Search find in files" })
+			vim.keymap.set("n", "<C-r>", builtin.command_history, { desc = "Search command history" })
 		end,
 	},
 }
