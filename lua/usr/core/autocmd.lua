@@ -6,7 +6,12 @@ local formating = vim.api.nvim_create_augroup("formating", { clear = true })
 -- Opening dialog
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
-		vim.notify_once("Nice day for Fishin' ain't? 🎣", vim.log.levels.INFO, { title = "Good day, Sir" })
+		local opts = {
+			title = "Good day, Sir",
+			render = "compact",
+			stages = "slide",
+		}
+		vim.notify_once("Nice day for Fishin' ain't? 🎣", vim.log.levels.INFO, opts)
 	end,
 	group = formating,
 	buffer = 0,
