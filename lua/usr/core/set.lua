@@ -5,6 +5,7 @@ vim.opt.cursorline = true
 -- line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.scrolloff = 999
 
 -- tabs & indentation
 vim.opt.tabstop = 4
@@ -34,7 +35,6 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 
--- vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
@@ -48,3 +48,6 @@ vim.opt.signcolumn = "yes"
 vim.diagnostic.config({
 	virtual_text = true,
 })
+
+vim.opt.clipboard = "unnamedplus"
+vim.opt.shell = "/opt/homebrew/bin/zsh"
