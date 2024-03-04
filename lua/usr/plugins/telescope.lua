@@ -6,7 +6,6 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-treesitter/nvim-treesitter-context" },
 			{ "nvim-telescope/telescope-fzf-native.nvim" },
-			{ "nvim-telescope/telescope-media-files.nvim" },
 			{ "nvim-tree/nvim-web-devicons" },
 			{ "debugloop/telescope-undo.nvim" },
 			{ "nvim-telescope/telescope-dap.nvim" },
@@ -20,16 +19,37 @@ return {
 			},
 		},
 		opts = {
+			defaults = {
+				prompt_prefix = "🔭 ",
+				sorting_strategy = "ascending",
+				file_ignore_patterns = { "^.git/", "^vendor/", "^node_modules/", "^.DS_Store" },
+			},
+			pickers = {
+				find_files = {
+					hidden = true,
+					additional_args = function()
+						return { "--hidden", "--glob", "!.git" }
+					end,
+				},
+				live_grep = {
+					hidden = true,
+					additional_args = function()
+						return { "--hidden", "--glob", "!.git" }
+					end,
+				},
+				grep_string = {
+					hidden = true,
+					additional_args = function()
+						return { "--hidden", "--glob", "!.git" }
+					end,
+				},
+			},
 			extensions = {
 				fzf = {
 					fuzzy = true, -- false will only do exact matching
 					override_generic_sorter = true, -- override the generic sorter
 					override_file_sorter = true, -- override the file sorter
 					case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-				},
-				media_files = {
-					filetypes = { "png", "jpg", "mp4", "webm", "pdf" },
-					find_cmd = "rg",
 				},
 				undo = {
 					side_by_side = true,
@@ -46,13 +66,10 @@ return {
 		},
 		config = function(_, opts)
 			local telescope = require("telescope")
-			local builtin = require("telescope.builtin")
-
 			telescope.setup(opts)
 
 			local extensions = {
 				"fzf",
-				"media_files",
 				"notify",
 				"undo",
 			}
@@ -61,6 +78,7 @@ return {
 				telescope.load_extension(extension)
 			end
 
+			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>saf", builtin.find_files, { desc = "[S]earch [A]round [F]iles" })
 			vim.keymap.set("n", "<leader>sif", builtin.live_grep, { desc = "[S]earch [I]nner [F]iles" })
 			vim.keymap.set("n", "<leader>sg", builtin.git_files, { desc = "[S]earch [B]uffers" })
@@ -68,7 +86,11 @@ return {
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elptags" })
 			vim.keymap.set("n", "<leader>sm", builtin.man_pages, { desc = "[S]earch [M]an-Pages" })
 			vim.keymap.set("n", "<leader>sn", "<cmd>Telescope notify<cr>", { desc = "[S]earch [N]otifications" })
-
+			vim.keymap.set("n", "<leader>sc", function()
+				builtin.find_files({
+					cwd = vim.fn.stdpath("config"),
+				})
+			end, { desc = "[S]earch [C]onfig" })
 			vim.keymap.set("n", "<leader>u", function()
 				telescope.extensions.undo.undo({ side_by_side = true })
 			end, { desc = "[U]ndo" })
