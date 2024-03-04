@@ -49,5 +49,4 @@ vim.diagnostic.config({
 	virtual_text = true,
 })
 
-vim.opt.clipboard = "unnamedplus"
 vim.opt.shell = "/opt/homebrew/bin/zsh"
