@@ -24,12 +24,15 @@ return {
 			variant = "moon", -- auto, main, moon, or dawn
 			dark_variant = "moon", -- main, moon, or dawn
 			disable_background = false,
-			dim_inactive_windows = false,
+			dim_inactive_windows = true,
 			extend_background_behind_borders = true,
 			styles = {
 				bold = true,
 				italic = true,
 				transparency = false,
+			},
+			highlight_groups = {
+				StatusLineNc = { link = "StatusLine" },
 			},
 			groups = {
 				border = "muted",

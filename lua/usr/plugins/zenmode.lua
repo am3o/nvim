@@ -2,7 +2,7 @@ return {
 	"folke/zen-mode.nvim",
 	opts = {
 		window = {
-			backdrop = 0.95,
+			backdrop = 0.8,
 			width = 0.7, -- width of the Zen window
 			height = 1, -- height of the Zen window
 		},
@@ -22,15 +22,13 @@ return {
 			},
 			alacritty = {
 				enabled = false,
-				font = "14", -- font size
+				font = "15", -- font size
 			},
 			wezterm = {
 				enabled = false,
 				font = "+4", -- (10% increase per step)
 			},
 		},
-		on_open = function(win) end,
-		on_close = function() end,
 	},
 	config = function(_, opts)
 		local zenMode = require("zen-mode")

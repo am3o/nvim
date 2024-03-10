@@ -3,6 +3,14 @@
 -- auto-command repeatedly every time a file is resourced
 local formating = vim.api.nvim_create_augroup("formating", { clear = true })
 
+local function convert(opts)
+	local parts = {}
+	for key, value in pairs(opts) do
+		table.insert(parts, key .. "=" .. tostring(value))
+	end
+	return table.concat(parts, ",")
+end
+
 -- Opening dialog
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
@@ -12,6 +20,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 			stages = "slide",
 		}
 		vim.notify_once("Nice day for Fishin' ain't? 🎣", vim.log.levels.INFO, opts)
+		-- During times of universal deceit. Telling the truth becomes a revolutionary act.
 	end,
 	group = formating,
 	buffer = 0,
@@ -36,7 +45,20 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	desc = "Auto-format YAML files",
 	callback = function()
 		local fileName = vim.api.nvim_buf_get_name(0)
-		vim.cmd(":silent !yamlfmt " .. fileName)
+
+		local opts = {
+			indent = 2,
+			include_document_start = false,
+			retain_line_breaks = true,
+			retain_line_breaks_single = false,
+			disallow_anchors = false,
+			max_line_length = 0,
+			indentless_arrays = false,
+			drop_merge_tag = false,
+			pad_line_comments = 1,
+		}
+
+		vim.cmd(":silent !yamlfmt -formatter " .. convert(opts) .. " " .. fileName)
 		vim.notify("Formating succesfully done", vim.log.levels.INFO, { title = "yamlfmt" })
 	end,
 	group = formating,
