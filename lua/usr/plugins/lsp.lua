@@ -32,26 +32,6 @@ return {
 					end,
 				},
 				completion = { completeopt = "menu,menuone,noinsert" },
-
-				-- local cmp = require("cmp")
-				-- local cmp_select = { behavior = cmp.SelectBehavior.Select }
-				-- cmp.setup({
-				-- 	snippet = {
-				-- 		expand = function(args)
-				-- 			require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-				-- 		end,
-				-- 	},
-				-- 	mapping = cmp.mapping.preset.insert({
-				-- 		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-				-- 		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-				-- 	}),
-				-- 	sources = cmp.config.sources({
-				-- 		{ name = "nvim_lsp" },
-				-- 		{ name = "luasnip" },
-				-- 	}, {
-				-- 		{ name = "buffer" },
-				-- 	}),
-				-- })
 				-- For an understanding of why these mappings were
 				-- chosen, you will need to read `:help ins-completion`
 				--
@@ -86,17 +66,22 @@ return {
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
 			{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
+			{ "folke/neodev.nvim", opts = {} },
 			{ "j-hui/fidget.nvim", opts = {} },
 		},
-		opts = {
-			fidget = {},
-			mason = {
+		config = function()
+			require("fidget").setup({})
+			require("neodev").setup({})
+
+			require("mason").setup({
 				ui = {
 					check_outdated_packages_on_open = true,
 					border = "rounded",
 				},
-			},
-			mason_lspconfig = {
+			})
+
+			local lspconfig = require("lspconfig")
+			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"gopls",
 					"lua_ls",
@@ -107,15 +92,18 @@ return {
 				},
 				handlers = {
 					function(server_name)
-						require("lspconfig")[server_name].setup({
+						lspconfig[server_name].setup({
 							capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities()),
 						})
 					end,
 					["lua_ls"] = function()
-						require("lspconfig").lua_ls.setup({
+						lspconfig.lua_ls.setup({
 							capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities()),
 							settings = {
 								Lua = {
+									completion = {
+										callSnippet = "Replace",
+									},
 									diagnostics = {
 										globals = { "vim", "it", "describe", "before_each", "after_each" },
 									},
@@ -124,7 +112,7 @@ return {
 						})
 					end,
 					["yamlls"] = function()
-						local opts = {
+						lspconfig.yamlls.setup({
 							capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities()),
 							settings = {
 								yaml = {
@@ -133,20 +121,14 @@ return {
 									},
 								},
 							},
-						}
-						require("lspconfig").yamlls.setup(opts)
+						})
 					end,
 				},
-			},
-		},
-		config = function(_, opts)
-			require("fidget").setup(opts["fidget"])
-			require("mason").setup(opts["mason"])
-			require("mason-lspconfig").setup(opts["mason_lspconfig"])
+			})
 
 			vim.keymap.set("n", "<leader>tm", "<cmd>Mason<cr>", { desc = "[T]oggle [M]ason", silent = true })
 			vim.api.nvim_create_autocmd("LspAttach", {
-				-- group = vim.api.nvim_create_autogroup("foo-lsp-attach", { clear = true }),
+				group = vim.api.nvim_create_augroup("-lsp-attach", { clear = true }),
 				callback = function(event)
 					local builtin = require("telescope.builtin")
 
