@@ -47,8 +47,7 @@ return {
 		},
 		config = function(_, opts)
 			require("treesitter-context").setup(opts["treesitter_context"])
-			local configs = require("nvim-treesitter.configs")
-			configs.setup(opts["treesitter"])
+			require("nvim-treesitter.configs").setup(opts["treesitter"])
 		end,
 	},
 }
