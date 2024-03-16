@@ -1,6 +1,6 @@
 return {
 	"rasulomaroff/reactive.nvim",
-	enabled = false,
+	enabled = true,
 	opts = {
 		builtin = {
 			cursorline = true,

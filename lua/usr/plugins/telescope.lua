@@ -1,18 +1,24 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.5",
+		event = "VimEnter",
+		branch = "0.1.x",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-treesitter/nvim-treesitter-context" },
-			{ "nvim-telescope/telescope-fzf-native.nvim" },
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make",
+				cond = function()
+					return vim.fn.executable("make") == 1
+				end,
+			},
 			{ "nvim-tree/nvim-web-devicons" },
 			{ "debugloop/telescope-undo.nvim" },
 			{ "nvim-telescope/telescope-dap.nvim" },
 			{ "mfussenegger/nvim-dap" },
 			{ "leoluz/nvim-dap-go" },
 			{ "theHamsta/nvim-dap-virtual-text" },
-			{ "nvim-telescope/telescope.nvim" },
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "make",
@@ -20,8 +26,8 @@ return {
 		},
 		opts = {
 			defaults = {
-				prompt_prefix = "🔭 ",
-				sorting_strategy = "ascending",
+				prompt_prefix = "🔭  ",
+				-- sorting_strategy = "",
 				file_ignore_patterns = { "^.git/", "^vendor/", "^node_modules/", "^.DS_Store" },
 			},
 			pickers = {

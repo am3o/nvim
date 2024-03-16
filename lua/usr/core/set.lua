@@ -4,20 +4,23 @@ vim.opt.cursorline = true
 
 -- line numbers
 vim.opt.nu = true
+vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 999
 
 -- tabs & indentation
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-
-vim.opt.smartindent = true
 
 -- search settings
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.smartindent = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 -- line wrapping
 vim.opt.wrap = true
@@ -28,16 +31,22 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.cache/vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+-- split
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
-vim.opt.termguicolors = true
+-- divers
+vim.opt.list = false
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 
 vim.opt.isfname:append("@-@")
+vim.opt.inccommand = "split"
 
-vim.opt.updatetime = 50
+-- update intervals
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
 
 -- turn on termguicolors for nightfly colorschema to work
 vim.opt.termguicolors = true
@@ -49,4 +58,6 @@ vim.diagnostic.config({
 	virtual_text = true,
 })
 
+-- shell options
 vim.opt.shell = "/opt/homebrew/bin/zsh"
+vim.opt.showmode = false
