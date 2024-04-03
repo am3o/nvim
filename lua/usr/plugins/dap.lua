@@ -1,8 +1,9 @@
 return {
-	"mfussenegger/nvim-dap",
+	"rcarriga/nvim-dap-ui",
 	dependencies = {
 		"leoluz/nvim-dap-go",
-		"rcarriga/nvim-dap-ui",
+		"nvim-neotest/nvim-nio",
+		"mfussenegger/nvim-dap",
 		"theHamsta/nvim-dap-virtual-text",
 	},
 	config = function()
