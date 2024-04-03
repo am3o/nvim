@@ -70,7 +70,13 @@ return {
 			{ "j-hui/fidget.nvim", opts = {} },
 		},
 		config = function()
-			require("fidget").setup({})
+			require("fidget").setup({
+				notification = {
+					window = {
+						winblend = 0,
+					},
+				},
+			})
 			require("neodev").setup({})
 
 			require("mason").setup({
@@ -157,6 +163,7 @@ return {
 					vim.keymap.set("i", "<C-h>", function()
 						vim.lsp.buf.signature_help()
 					end, { remap = false })
+
 					vim.diagnostic.config({
 						-- update_in_insert = true,
 						float = {
