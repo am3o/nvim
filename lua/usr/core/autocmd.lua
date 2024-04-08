@@ -3,14 +3,6 @@
 -- auto-command repeatedly every time a file is resourced
 local formating = vim.api.nvim_create_augroup("formating", { clear = true })
 
-local function convert(opts)
-	local parts = {}
-	for key, value in pairs(opts) do
-		table.insert(parts, key .. "=" .. tostring(value))
-	end
-	return table.concat(parts, ",")
-end
-
 -- Opening dialog
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
