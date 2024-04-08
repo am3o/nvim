@@ -26,6 +26,15 @@ return {
 					enable = true,
 					additional_vim_regex_highlighting = false,
 				},
+				incremental_selection = {
+					enable = true, -- set to `false` to disable one of the mappings
+					keymaps = {
+						init_selection = "<leader>ss",
+						node_incremental = "<leader>si",
+						scope_incremental = "<leader>sc",
+						node_decremental = "<leader>sd",
+					},
+				},
 				indent = {
 					enable = true,
 				},
