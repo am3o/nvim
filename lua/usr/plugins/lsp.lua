@@ -164,18 +164,6 @@ return {
 						vim.lsp.buf.signature_help()
 					end, { remap = false })
 
-					vim.diagnostic.config({
-						-- update_in_insert = true,
-						float = {
-							focusable = false,
-							style = "minimal",
-							border = "rounded",
-							source = "always",
-							header = "",
-							prefix = "",
-						},
-					})
-
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client.server_capabilities.documentHighlightProvider then
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -189,6 +177,18 @@ return {
 						})
 					end
 				end,
+			})
+
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				border = "rounded",
+			})
+
+			vim.diagnostic.config({
+				virtual_text = true,
+				signs = true,
+				underline = true,
+				update_in_insert = false,
+				severity_sort = false,
 			})
 		end,
 	},
