@@ -1,9 +1,8 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
 		enabled = true,
-		event = "VimEnter",
+		event = "InsertEnter",
 		dependencies = {
 			{
 				"L3MON4D3/LuaSnip",
@@ -64,6 +63,8 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		enabled = true,
+		event = "InsertEnter",
 		dependencies = {
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
@@ -89,14 +90,15 @@ return {
 			})
 
 			local lspconfig = require("lspconfig")
+			require("lspconfig.ui.windows").default_options.border = "rounded"
 			require("mason-lspconfig").setup({
 				ensure_installed = {
+					"dockerls",
 					"gopls",
 					"lua_ls",
-					"dockerls",
+					"helm_ls",
 					"terraformls",
 					"tsserver",
-					"yamlls",
 				},
 				handlers = {
 					function(server_name)
@@ -119,18 +121,30 @@ return {
 							},
 						})
 					end,
-					["yamlls"] = function()
-						lspconfig.yamlls.setup({
+					["helm_ls"] = function()
+						lspconfig.helm_ls.setup({
 							capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities()),
 							settings = {
-								yaml = {
-									schemas = {
-										kubernetes = "globPattern",
+								["helm-ls"] = {
+									yamlls = {
+										path = "yaml-language-server",
 									},
 								},
 							},
 						})
 					end,
+					-- ["yamlls"] = function()
+					-- 	lspconfig.yamlls.setup({
+					-- 		capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities()),
+					-- 		settings = {
+					-- 			yaml = {
+					-- 				schemas = {
+					-- 					kubernetes = "templates/**",
+					-- 				},
+					-- 			},
+					-- 		},
+					-- 	})
+					-- end,
 				},
 			})
 
