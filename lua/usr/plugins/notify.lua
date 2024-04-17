@@ -1,6 +1,7 @@
 return {
 	"rcarriga/nvim-notify",
 	enabled = true,
+	event = "VimEnter",
 	opts = {
 		background_colour = "#000000",
 	},

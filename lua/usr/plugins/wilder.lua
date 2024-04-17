@@ -1,5 +1,7 @@
 return {
 	"gelguy/wilder.nvim",
+	enabled = true,
+	event = "VeryLazy",
 	opts = {
 		modes = { ":", "/", "?" },
 	},

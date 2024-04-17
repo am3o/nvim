@@ -1,6 +1,7 @@
 return {
 	"michaelrommel/nvim-silicon",
-	lazy = true,
+	enabled = true,
+	lazy = "VeryLazy",
 	cmd = "Silicon",
 	opts = {
 		-- most of them could be overridden with other

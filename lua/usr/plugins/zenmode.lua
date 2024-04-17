@@ -1,5 +1,7 @@
 return {
 	"folke/zen-mode.nvim",
+	enabled = true,
+	event = "VeryLazy",
 	opts = {
 		window = {
 			backdrop = 0.8,

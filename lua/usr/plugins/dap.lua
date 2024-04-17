@@ -1,5 +1,7 @@
 return {
 	"rcarriga/nvim-dap-ui",
+	enabled = true,
+	event = "VeryLazy",
 	dependencies = {
 		"leoluz/nvim-dap-go",
 		"nvim-neotest/nvim-nio",
