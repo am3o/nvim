@@ -26,14 +26,14 @@ return {
 			delay = 100,
 			ignore_whitespace = false,
 		},
-		current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
+		current_line_blame_formatter = " <author_time:%Y-%m-%d>, <author> - <summary>",
 		sign_priority = 6,
 		update_debounce = 100,
 		status_formatter = nil, -- Use default
 		max_file_length = 40000, -- Disable if file is longer than this (in lines)
 		preview_config = {
 			-- Options passed to nvim_open_win
-			border = "single",
+			border = "rounded",
 			style = "minimal",
 			relative = "cursor",
 			row = 0,
@@ -47,11 +47,8 @@ return {
 		local gitSigns = require("gitsigns")
 		gitSigns.setup(opts)
 
-		vim.keymap.set("n", "<leader>gp", function()
-			gitSigns.preview_hunk()
-		end, { silent = true, desc = "[G]it [P]review" })
-		vim.keymap.set("n", "<leader>gb", function()
-			gitSigns.toggle_current_line_blame()
-		end, { silent = true, desc = "[G]it [B]lame" })
+		vim.keymap.set("n", "<leader>gp", gitSigns.preview_hunk, { silent = true, desc = "[G]it [P]review" })
+		vim.keymap.set("n", "<leader>gb", gitSigns.toggle_current_line_blame, { silent = true, desc = "[G]it [B]lame" })
+		vim.keymap.set("n", "<leader>gd", gitSigns.diffthis)
 	end,
 }
