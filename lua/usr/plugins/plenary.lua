@@ -1,6 +1,6 @@
 return {
-	{
-		"nvim-lua/plenary.nvim",
-		name = "plenary",
-	},
+	"nvim-lua/plenary.nvim",
+	enabled = true,
+	event = "VimEnter",
+	name = "plenary",
 }
