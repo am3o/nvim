@@ -2,7 +2,7 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		enabled = true,
-		event = "InsertEnter",
+		event = "VimEnter",
 		dependencies = {
 			{
 				"L3MON4D3/LuaSnip",
@@ -64,7 +64,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		enabled = true,
-		event = "InsertEnter",
+		event = "VimEnter",
 		dependencies = {
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },

@@ -1,7 +1,7 @@
 return {
 	"prichrd/netrw.nvim",
 	enabled = true,
-	event = "VimEnter",
+	event = "VeryLazy",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
