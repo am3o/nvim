@@ -2,6 +2,7 @@ return {
 	"folke/todo-comments.nvim",
 	enabled = true,
 	event = "VeryLazy",
+	lazy = true,
 	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
 		signs = true,
@@ -24,6 +25,7 @@ return {
 		-- HACK: use defer becaus of reasons
 		-- NOTE: adding a Note
 		-- TODO: Show me again
+		-- TEST: Another good job
 		vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<cr>", { silent = true, desc = "[T]oggle [T]o[D]o" })
 	end,
 }
