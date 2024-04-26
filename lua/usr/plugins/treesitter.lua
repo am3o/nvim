@@ -1,7 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	enabled = true,
-	event = "VimEnter",
+	event = "VeryLazy",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-context",
 	},
