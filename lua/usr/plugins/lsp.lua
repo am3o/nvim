@@ -96,6 +96,7 @@ return {
 					"dockerls",
 					"gopls",
 					"lua_ls",
+					"rust_analyzer",
 					"helm_ls",
 					"terraformls",
 					"tsserver",
@@ -130,6 +131,14 @@ return {
 										path = "yaml-language-server",
 									},
 								},
+							},
+						})
+					end,
+					["rust_analyzer"] = function()
+						lspconfig.rust_analyzer.setup({
+							cmd = { "rust-analyzer" },
+							settings = {
+								["rust_analyzer"] = {},
 							},
 						})
 					end,
