@@ -1,7 +1,7 @@
 return {
 	"gelguy/wilder.nvim",
 	enabled = true,
-	event = "VeryLazy",
+	event = "CmdlineEnter",
 	opts = {
 		modes = { ":", "/", "?" },
 	},
