@@ -27,6 +27,7 @@ return {
 	opts = {
 		defaults = {
 			file_ignore_patterns = { "^.git/", "^vendor/", "^node_modules/", "^.DS_Store" },
+			prompt_prefix = " 🔭 ",
 		},
 		pickers = {
 			find_files = {
