@@ -1,7 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	enabled = true,
-	event = "VeryLazy",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-context",
 	},
@@ -11,12 +10,14 @@ return {
 			ensure_installed = {
 				"bash",
 				"go",
-				"javascript",
 				"helm",
+				"javascript",
 				"lua",
 				"make",
 				"markdown",
+				"rust",
 				"terraform",
+				"toml",
 				"typescript",
 				"vim",
 				"vimdoc",
@@ -27,6 +28,11 @@ return {
 			highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = false,
+			},
+			rainbow = {
+				enable = true,
+				extended_mode = true,
+				max_file_lines = nil,
 			},
 			incremental_selection = {
 				enable = true, -- set to `false` to disable one of the mappings
