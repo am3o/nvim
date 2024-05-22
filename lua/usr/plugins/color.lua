@@ -65,6 +65,7 @@ return {
 				},
 			},
 			notify = false,
+			rainbow_delimiters = true,
 			telescope = true,
 			treesitter = true,
 			treesitter_context = false,
