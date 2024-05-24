@@ -29,11 +29,6 @@ return {
 				enable = true,
 				additional_vim_regex_highlighting = false,
 			},
-			rainbow = {
-				enable = true,
-				extended_mode = true,
-				max_file_lines = nil,
-			},
 			incremental_selection = {
 				enable = true, -- set to `false` to disable one of the mappings
 				keymaps = {
