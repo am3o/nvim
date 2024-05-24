@@ -1,6 +1,6 @@
 return {
 	"Raimondi/delimitMate",
 	enabled = true,
-	event = "VeryLazy",
+	event = "BufEnter",
 	lazy = true,
 }
