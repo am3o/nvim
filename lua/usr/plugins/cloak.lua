@@ -1,7 +1,10 @@
 return {
 	"laytan/cloak.nvim",
 	enabled = true,
-	event = { "BufReadPre *.env" },
+	event = {
+		"BufReadPre *.env",
+		"BufReadPre *.envrc",
+	},
 	opts = {
 		enabled = true,
 		cloak_character = "*",
