@@ -2,7 +2,6 @@ return {
 	"folke/todo-comments.nvim",
 	enabled = true,
 	event = "VeryLazy",
-	lazy = true,
 	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
 		signs = true,
