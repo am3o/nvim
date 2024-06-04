@@ -1,6 +1,9 @@
 return {
 	"towolf/vim-helm",
 	enabled = true,
-	event = "VeryLazy",
+	event = {
+		"BufReadPre *.yml",
+		"BufReadPre *.yaml",
+	},
 	ft = "helm",
 }
