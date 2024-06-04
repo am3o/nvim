@@ -1,6 +1,6 @@
 return {
 	"dstein64/vim-startuptime",
-	enabled = true,
+	enabled = false,
 	event = "VeryLazy",
 	cmd = "StartupTime",
 	init = function()
