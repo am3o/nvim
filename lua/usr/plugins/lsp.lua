@@ -68,7 +68,6 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		enabled = true,
-		event = "VimEnter",
 		dependencies = {
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
