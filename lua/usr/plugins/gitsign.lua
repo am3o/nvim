@@ -1,7 +1,12 @@
 return {
 	"lewis6991/gitsigns.nvim",
 	enabled = true,
-	event = "VeryLazy",
+	event = "BufReadPost",
+	keys = {
+		{ "<leader>gp", desc = "[G]it [P]review" },
+		{ "<leader>gb", desc = "[G]it [B]lame" },
+		{ "<leader>gd", desc = "[G]it [D]iff" },
+	},
 	opts = {
 		signs = {
 			add = { text = "│" },
@@ -47,8 +52,10 @@ return {
 		local gitSigns = require("gitsigns")
 		gitSigns.setup(opts)
 
-		vim.keymap.set("n", "<leader>gp", gitSigns.preview_hunk, { silent = true, desc = "[G]it [P]review" })
-		vim.keymap.set("n", "<leader>gb", gitSigns.toggle_current_line_blame, { silent = true, desc = "[G]it [B]lame" })
-		vim.keymap.set("n", "<leader>gd", gitSigns.diffthis)
+		if vim.fn.isdirectory(".git") == 1 then
+			vim.keymap.set("n", "<leader>gp", gitSigns.preview_hunk, { silent = true, desc = "[G]it [P]review" })
+			vim.keymap.set("n", "<leader>gb", gitSigns.toggle_current_line_blame, { silent = true, desc = "[G]it [B]lame" })
+			vim.keymap.set("n", "<leader>gd", gitSigns.diffthis)
+		end
 	end,
 }
