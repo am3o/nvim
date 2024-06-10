@@ -1,7 +1,9 @@
 return {
 	"folke/zen-mode.nvim",
 	enabled = true,
-	event = "VeryLazy",
+	keys = {
+		{ "<leader>tz", "[T]oggle [Z]enmode" },
+	},
 	opts = {
 		window = {
 			backdrop = 0.8,
