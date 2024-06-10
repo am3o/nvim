@@ -3,8 +3,10 @@ return {
 	enabled = true,
 	event = "VeryLazy",
 	dependencies = {
-		"nvim-tree/nvim-web-devicons",
-		lazy = true,
+		{
+			"nvim-tree/nvim-web-devicons",
+			lazy = true,
+		},
 	},
 	opts = {
 		options = {
