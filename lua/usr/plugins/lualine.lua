@@ -7,6 +7,7 @@ return {
 			"nvim-tree/nvim-web-devicons",
 			lazy = true,
 		},
+		"folke/trouble.nvim",
 	},
 	opts = {
 		options = {
@@ -19,7 +20,7 @@ return {
 				{ "mode", separator = { left = "" }, right_padding = 2 },
 			},
 			lualine_b = { "filename", "branch" },
-			lualine_c = { "fileformat" },
+			lualine_c = {},
 			lualine_x = {},
 			lualine_y = { "filetype", "progress" },
 			lualine_z = {
@@ -38,6 +39,20 @@ return {
 		extensions = {},
 	},
 	config = function(_, opts)
+		local trouble = require("trouble")
+		local symbols = trouble.statusline({
+			mode = "lsp_document_symbols",
+			groups = {},
+			title = false,
+			filter = { range = true },
+			format = "{kind_icon}{symbol.name:Normal}",
+			hl_group = "lualine_c",
+		})
+
+		table.insert(opts.sections.lualine_c, {
+			symbols.get,
+			cond = symbols.has,
+		})
 		require("lualine").setup(opts)
 	end,
 }
