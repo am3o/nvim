@@ -2,14 +2,23 @@ return {
 	{
 		"rcarriga/nvim-dap-ui",
 		enabled = true,
-		event = "VeryLazy",
 		dependencies = {
 			"mfussenegger/nvim-dap",
 			"nvim-neotest/nvim-nio",
 			"theHamsta/nvim-dap-virtual-text",
 		},
+		keys = {
+			{ "<F7>", desc = "Debug jump step into" },
+			{ "<F8>", desc = "Debug jump step over" },
+			{ "<F9>", desc = "Debug jump step out" },
+			{ "<F10>", desc = "Debug jump continue" },
+			{ "<leader>b", desc = "set [B]reakpoint" },
+			{ "<leader>B", desc = "set conditionaly [B]reakpoint" },
+			{ "<leader>rd", desc = "[R]un [D]ebugger" },
+			{ "<leader>od", desc = "[O]pen [D]ebugger" },
+		},
 		config = function()
-			local dap = require("dap")
+			local dap, dapui = require("dap"), require("dapui")
 
 			vim.keymap.set("n", "<F7>", dap.step_into, { silent = true, desc = "Debug jump step into" })
 			vim.keymap.set("n", "<F8>", dap.step_over, { silent = true, desc = "Debug jump step over" })
@@ -22,12 +31,9 @@ return {
 			end, { silent = true, desc = "set conditionaly [B]reakpoint" })
 
 			vim.keymap.set("n", "<leader>rd", dap.continue, { silent = true, desc = "[R]un [D]ebugger" })
-
-			local dapui = require("dapui")
 			vim.keymap.set("n", "<leader>od", dapui.toggle, { silent = true, desc = "[O]pen [D]ebugger" })
 
 			dapui.setup()
-
 			require("nvim-dap-virtual-text").setup({})
 			dap.listeners.after.event_initialized["dapui_config"] = function()
 				dapui.open()
@@ -45,8 +51,10 @@ return {
 	{
 		"leoluz/nvim-dap-go",
 		enabled = true,
-		evenet = "VeryLazy",
 		ft = { "go", "gomod" },
+		keys = {
+			{ "<leader>rdt", desc = "[R]un [D]ebugger [T]est" },
+		},
 		config = function()
 			local dapgo = require("dap-go")
 
