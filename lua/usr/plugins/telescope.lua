@@ -5,7 +5,6 @@ return {
 	branch = "0.1.x",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
-		{ "nvim-treesitter/nvim-treesitter-context" },
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
