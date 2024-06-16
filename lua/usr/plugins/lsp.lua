@@ -13,10 +13,18 @@ return {
 					return "make install_jsregexp"
 				end)(),
 			},
+			{
+				"folke/lazydev.nvim",
+				ft = "lua",
+				opts = {
+					library = {
+						{ path = "luvit-meta/library", words = { "vim%.uv" } },
+					},
+				},
+			},
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-cmdline" },
-			{ "saadparwaiz1/cmp_luasnip" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-path" },
 		},
@@ -59,7 +67,7 @@ return {
 				}),
 				sources = {
 					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
+					{ name = "lazydev", group_index = 0 },
 					{ name = "path" },
 				},
 			})
@@ -72,7 +80,6 @@ return {
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
 			{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
-			{ "folke/neodev.nvim", opts = {} },
 			{ "j-hui/fidget.nvim", opts = {} },
 		},
 		config = function()
@@ -83,7 +90,6 @@ return {
 					},
 				},
 			})
-			require("neodev").setup({})
 
 			require("mason").setup({
 				ui = {
@@ -110,21 +116,6 @@ return {
 							capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities()),
 						})
 					end,
-					["lua_ls"] = function()
-						lspconfig.lua_ls.setup({
-							capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities()),
-							settings = {
-								Lua = {
-									completion = {
-										callSnippet = "Replace",
-									},
-									diagnostics = {
-										globals = { "vim", "it", "describe", "before_each", "after_each" },
-									},
-								},
-							},
-						})
-					end,
 					["helm_ls"] = function()
 						lspconfig.helm_ls.setup({
 							capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities()),
@@ -145,18 +136,6 @@ return {
 							},
 						})
 					end,
-					-- ["yamlls"] = function()
-					-- 	lspconfig.yamlls.setup({
-					-- 		capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities()),
-					-- 		settings = {
-					-- 			yaml = {
-					-- 				schemas = {
-					-- 					kubernetes = "templates/**",
-					-- 				},
-					-- 			},
-					-- 		},
-					-- 	})
-					-- end,
 				},
 			})
 
