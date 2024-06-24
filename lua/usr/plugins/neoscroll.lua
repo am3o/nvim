@@ -1,7 +1,16 @@
 return {
 	"karb94/neoscroll.nvim",
 	enabled = true,
-	event = "VeryLazy",
+	keys = {
+		"<C-u>",
+		"<C-d>",
+		"<C-b>",
+		"<C-f>",
+		"<C-y>",
+		"zt",
+		"zz",
+		"zb",
+	},
 	opts = {
 		mappings = {
 			"<C-u>",
