@@ -62,7 +62,9 @@ return {
 					preview_height = 0.8,
 				},
 				use_delta = true,
-				diff_context_lines = vim.o.scrolloff,
+				vim_diff_opts = {
+					ctxlen = 0,
+				},
 				entry_format = "#$ID, $TIME",
 				saved_only = true,
 			},
