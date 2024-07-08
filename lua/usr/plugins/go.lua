@@ -15,5 +15,6 @@ return {
 		vim.keymap.set("n", "<leader>r", ":!go run .<CR>", { silent = true })
 		vim.keymap.set("n", "<leader>gif", "<CMD>GoIfErr<CR>", { silent = true })
 		vim.keymap.set("n", "<leader>gfs", "<CMD>GoFillStruct<CR>", { silent = true })
+		vim.keymap.set("n", "<leader>gat", "<CMD>GoAddTag<CR>", { silent = true })
 	end,
 }
