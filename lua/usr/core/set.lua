@@ -22,6 +22,10 @@ vim.opt.smartindent = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
+-- spelling
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
+
 -- line wrapping
 vim.opt.wrap = true
 
