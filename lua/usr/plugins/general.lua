@@ -5,10 +5,22 @@ return {
 		name = "plenary",
 	},
 	{
+		"echasnovski/mini.icons",
+		enabled = true,
+		version = false,
+		opts = {
+			style = "glyph",
+		},
+	},
+	{
+		"nvim-tree/nvim-web-devicons",
+		enabled = true,
+	},
+	{
 		"dgox16/devicon-colorscheme.nvim",
+		enabled = true,
 		dependencies = {
 			"catppuccin/nvim",
-			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
 			local mocha = require("catppuccin.palettes").get_palette("mocha")
