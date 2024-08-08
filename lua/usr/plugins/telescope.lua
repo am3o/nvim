@@ -1,10 +1,22 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	enabled = true,
-	event = "VeryLazy",
 	branch = "0.1.x",
+	event = "VeryLazy",
+	keys = {
+		{ "<leader>saf", desc = "[S]earch [A]round [F]iles" },
+		{ "<leader>sif", desc = "[S]earch [I]nner [F]iles" },
+		{ "<leader>sg", desc = "[S]earch [B]uffers" },
+		{ "<leader>sb", desc = "[S]earch [B]uffers" },
+		{ "<leader>sh", desc = "[S]earch [H]elptags" },
+		{ "<leader>sm", desc = "[S]earch [M]an-Pages" },
+		{ "<leader>sn", desc = "[S]earch [N]otifications" },
+		{ "<leader>sc", desc = "[S]earch [C]onfig" },
+		{ "<leader>cs", desc = "[C]heck [S]pell" },
+		{ "<leader>u", desc = "Search command history" },
+	},
 	dependencies = {
-		{ "nvim-lua/plenary.nvim" },
+		{ "debugloop/telescope-undo.nvim" },
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
@@ -12,12 +24,6 @@ return {
 				return vim.fn.executable("make") == 1
 			end,
 		},
-		{ "nvim-tree/nvim-web-devicons" },
-		{ "debugloop/telescope-undo.nvim" },
-		{ "nvim-telescope/telescope-dap.nvim" },
-		{ "mfussenegger/nvim-dap" },
-		{ "leoluz/nvim-dap-go" },
-		{ "theHamsta/nvim-dap-virtual-text" },
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
@@ -92,6 +98,7 @@ return {
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elptags" })
 		vim.keymap.set("n", "<leader>sm", builtin.man_pages, { desc = "[S]earch [M]an-Pages" })
 		vim.keymap.set("n", "<leader>sn", "<cmd>Telescope notify<cr>", { desc = "[S]earch [N]otifications" })
+		vim.keymap.set("n", "<leader>cs", builtin.spell_suggest, { desc = "[C]heck [S]pell" })
 		vim.keymap.set("n", "<leader>sc", function()
 			builtin.find_files({
 				cwd = vim.fn.stdpath("config"),
