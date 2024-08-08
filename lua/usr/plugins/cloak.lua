@@ -20,7 +20,4 @@ return {
 			},
 		},
 	},
-	config = function(_, opts)
-		require("cloak").setup(opts)
-	end,
 }
