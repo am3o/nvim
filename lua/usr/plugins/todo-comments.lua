@@ -30,8 +30,7 @@ return {
 		},
 	},
 	config = function(_, opts)
-		local todo = require("todo-comments")
-		todo.setup(opts)
+		require("todo-comments").setup(opts)
 
 		-- BUG: change the world
 		-- FIXME: Another fix me
