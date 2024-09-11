@@ -35,7 +35,4 @@ return {
 			-- print("Current line number: " .. current_line_number)
 		end, -- Function to run before the scrolling animation starts
 	},
-	config = function(_, opts)
-		require("neoscroll").setup(opts)
-	end,
 }
