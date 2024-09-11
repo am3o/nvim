@@ -1,6 +1,6 @@
 return {
 	"github/copilot.vim",
-	enabled = true,
+	enabled = false,
 	event = "VeryLazy",
 	opt = {},
 	config = function()
