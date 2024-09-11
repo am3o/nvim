@@ -80,11 +80,7 @@ return {
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
 			{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
-			{
-				"j-hui/fidget.nvim",
-				opts = {},
-				event = "VeryLazy",
-			},
+			{ "j-hui/fidget.nvim", opts = {} },
 		},
 		config = function()
 			require("fidget").setup({
@@ -112,7 +108,7 @@ return {
 					"rust_analyzer",
 					"helm_ls",
 					"terraformls",
-					"tsserver",
+					"ts_ls",
 				},
 				handlers = {
 					function(server_name)
