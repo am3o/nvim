@@ -1,10 +1,14 @@
 return {
 	"ThePrimeagen/harpoon",
 	enabled = true,
-	event = "VeryLazy",
+	lazy = true,
 	branch = "harpoon2",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+	},
+	keys = {
+		{ "<leader>a", desc = "[A]dd to harpoon" },
+		{ "<C-e>", desc = "View harpoon ui" },
 	},
 	config = function()
 		local harpoon = require("harpoon")
