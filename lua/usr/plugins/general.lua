@@ -2,11 +2,13 @@ return {
 	{
 		"nvim-lua/plenary.nvim",
 		enabled = true,
+		lazy = true,
 		name = "plenary",
 	},
 	{
 		"echasnovski/mini.icons",
 		enabled = true,
+		lazy = true,
 		version = false,
 		opts = {
 			style = "glyph",
@@ -15,10 +17,12 @@ return {
 	{
 		"nvim-tree/nvim-web-devicons",
 		enabled = true,
+		lazy = true,
 	},
 	{
 		"dgox16/devicon-colorscheme.nvim",
 		enabled = true,
+		lazy = true,
 		dependencies = {
 			"catppuccin/nvim",
 		},
