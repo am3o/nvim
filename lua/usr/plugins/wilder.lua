@@ -1,7 +1,7 @@
 return {
 	"gelguy/wilder.nvim",
-	enabled = true,
-	event = "CmdlineEnter",
+	enabled = false,
+	event = "VeryLazy",
 	opts = {
 		modes = { ":", "/", "?" },
 	},
@@ -19,9 +19,6 @@ return {
 		wilder.set_option(
 			"renderer",
 			wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
-				highlights = {
-					accent = wilder.make_hl("WilderAccent", "Pmenu", { { a = 1 }, { a = 1 }, { foreground = "#f4468f" } }),
-				},
 				highlighter = wilder.basic_highlighter(),
 				min_width = "100%",
 				min_height = "50%",
