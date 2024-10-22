@@ -16,6 +16,7 @@ return {
 		{ "<leader>u", desc = "Search command history" },
 	},
 	dependencies = {
+		{ "kelly-lin/telescope-ag" },
 		{ "debugloop/telescope-undo.nvim" },
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
@@ -84,6 +85,7 @@ return {
 			"fzf",
 			"notify",
 			"undo",
+			"ag",
 		}
 
 		for _, extension in ipairs(extensions) do
