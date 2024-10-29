@@ -99,7 +99,7 @@ return {
 			})
 
 			local lspconfig = require("lspconfig")
-			require("lspconfig.ui.windows").default_options.border = "rounded"
+
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"dockerls",
@@ -186,11 +186,13 @@ return {
 				end,
 			})
 
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				border = "rounded",
-			})
+			local float = { border = "rounded" }
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, float)
+
+			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, float)
 
 			vim.diagnostic.config({
+				float = float,
 				virtual_text = true,
 				signs = true,
 				underline = true,
