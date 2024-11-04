@@ -32,26 +32,40 @@ return {
 	},
 	opts = {
 		defaults = {
-			file_ignore_patterns = { "^.git/", "^vendor/", "^node_modules/", "^.DS_Store" },
+			file_ignore_patterns = {
+				"^.git/",
+				"^vendor/",
+				"node_modules",
+				"^.DS_Store",
+			},
 			prompt_prefix = " 🔭 ",
 		},
 		pickers = {
 			find_files = {
 				hidden = true,
 				additional_args = function()
-					return { "--hidden", "--glob", "!.git" }
+					return {
+						"--hidden",
+						"--glob",
+					}
 				end,
 			},
 			live_grep = {
 				hidden = true,
 				additional_args = function()
-					return { "--hidden", "--glob", "!.git" }
+					return {
+						"--hidden",
+						"--glob",
+					}
 				end,
 			},
 			grep_string = {
 				hidden = true,
 				additional_args = function()
-					return { "--hidden", "--glob", "!.git" }
+					return {
+						"--hidden",
+						"--glob",
+					}
 				end,
 			},
 		},
