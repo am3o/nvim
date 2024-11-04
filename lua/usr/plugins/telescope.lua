@@ -16,7 +16,6 @@ return {
 		{ "<leader>u", desc = "Search command history" },
 	},
 	dependencies = {
-		{ "kelly-lin/telescope-ag" },
 		{ "debugloop/telescope-undo.nvim" },
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
@@ -32,22 +31,14 @@ return {
 	},
 	opts = {
 		defaults = {
-			file_ignore_patterns = {
-				"^.git/",
-				"^vendor/",
-				"node_modules",
-				"^.DS_Store",
-			},
+			file_ignore_patterns = { "^.git/", "^vendor/", "node_modules", "^.DS_Store" },
 			prompt_prefix = " 🔭 ",
 		},
 		pickers = {
 			find_files = {
 				hidden = true,
 				additional_args = function()
-					return {
-						"--hidden",
-						"--glob",
-					}
+					return { "--hidden", "--glob" }
 				end,
 			},
 			live_grep = {
@@ -62,10 +53,7 @@ return {
 			grep_string = {
 				hidden = true,
 				additional_args = function()
-					return {
-						"--hidden",
-						"--glob",
-					}
+					return { "--hidden", "--glob" }
 				end,
 			},
 		},
@@ -115,11 +103,6 @@ return {
 		vim.keymap.set("n", "<leader>sm", builtin.man_pages, { desc = "[S]earch [M]an-Pages" })
 		vim.keymap.set("n", "<leader>sn", "<cmd>Telescope notify<cr>", { desc = "[S]earch [N]otifications" })
 		vim.keymap.set("n", "<leader>cs", builtin.spell_suggest, { desc = "[C]heck [S]pell" })
-		vim.keymap.set("n", "<leader>sc", function()
-			builtin.find_files({
-				cwd = vim.fn.stdpath("config"),
-			})
-		end, { desc = "[S]earch [C]onfig" })
 		vim.keymap.set("n", "<leader>u", function()
 			telescope.extensions.undo.undo({ side_by_side = true })
 		end, { desc = "[U]ndo" })
