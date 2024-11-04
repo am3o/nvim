@@ -1,6 +1,6 @@
 return {
 	"apple/pkl-neovim",
-	enabled = true,
+	enabled = false,
 	event = { "BufReadPre *.pkl" },
 	build = function()
 		vim.cmd("TSInstall! pkl")
