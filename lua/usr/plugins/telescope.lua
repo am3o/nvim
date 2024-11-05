@@ -1,8 +1,8 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	enabled = true,
-	branch = "0.1.x",
 	event = "VeryLazy",
+	branch = "0.1.x",
 	keys = {
 		{ "<leader>saf", desc = "[S]earch [A]round [F]iles" },
 		{ "<leader>sif", desc = "[S]earch [I]nner [F]iles" },
@@ -17,6 +17,7 @@ return {
 	},
 	dependencies = {
 		{ "debugloop/telescope-undo.nvim" },
+		{ "nvim-lua/plenary.nvim" },
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
@@ -31,17 +32,16 @@ return {
 	},
 	opts = {
 		defaults = {
-			file_ignore_patterns = { "^.git/", "^vendor/", "node_modules", "^.DS_Store" },
+			file_ignore_patterns = {
+				"^.git/",
+				"^vendor/",
+				"node_modules",
+				"^.DS_Store",
+			},
 			prompt_prefix = " 🔭 ",
 		},
 		pickers = {
 			find_files = {
-				hidden = true,
-				additional_args = function()
-					return { "--hidden", "--glob" }
-				end,
-			},
-			live_grep = {
 				hidden = true,
 				additional_args = function()
 					return {
@@ -50,10 +50,21 @@ return {
 					}
 				end,
 			},
+			live_grep = {
+				hidden = true,
+				additional_args = function()
+					return {
+						"--hidden",
+					}
+				end,
+			},
 			grep_string = {
 				hidden = true,
 				additional_args = function()
-					return { "--hidden", "--glob" }
+					return {
+						"--hidden",
+						"--glob",
+					}
 				end,
 			},
 		},
@@ -87,7 +98,6 @@ return {
 			"fzf",
 			"notify",
 			"undo",
-			"ag",
 		}
 
 		for _, extension in ipairs(extensions) do
