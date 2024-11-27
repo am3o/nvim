@@ -49,7 +49,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.inccommand = "split"
 
 -- update intervals
-vim.opt.updatetime = 250
+vim.opt.updatetime = 200
 vim.opt.timeoutlen = 300
 
 -- turn on termguicolors for nightfly colorschema to work
