@@ -109,6 +109,7 @@ return {
 					"helm_ls",
 					"terraformls",
 					"ts_ls",
+					"yamlls",
 				},
 				handlers = {
 					function(server_name)
