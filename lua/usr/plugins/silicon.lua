@@ -11,7 +11,7 @@ return {
 		theme = "gruvbox-dark",
 		-- a string or function that defines the path to the output image
 		output = function()
-			return "./snapshot_" .. os.date("!%Y-%m-%dT%H-%M-%S") .. ".png"
+			return "/tmp/snapshot_" .. os.date("!%Y-%m-%dT%H-%M-%S") .. ".png"
 		end,
 	},
 	config = function(_, opts)
