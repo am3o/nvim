@@ -7,7 +7,7 @@ return {
 	opts = {
 		window = {
 			backdrop = 0.8,
-			width = 0.7, -- width of the Zen window
+			width = 0.75, -- width of the Zen window
 			height = 1, -- height of the Zen window
 		},
 		plugins = {
