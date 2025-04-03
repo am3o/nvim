@@ -99,43 +99,43 @@ return {
 			})
 
 			local lspconfig = require("lspconfig")
+			local lspcmp = require("cmp_nvim_lsp")
 
 			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"dockerls",
-					"gopls",
-					"lua_ls",
-					"rust_analyzer",
-					"helm_ls",
-					"terraformls",
-					"ts_ls",
-					"yamlls",
-				},
+				ensure_installed = {},
+				automatic_installation = false,
 				handlers = {
-					function(server_name)
-						lspconfig[server_name].setup({
-							capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities()),
+					function(name)
+            -- stylua: ignore
+						local capabilities = vim.tbl_deep_extend(
+              "force",
+              vim.lsp.protocol.make_client_capabilities(),
+              lspcmp.default_capabilities()
+            )
+
+						lspconfig[name].setup({
+							capabilities = capabilities,
 						})
 					end,
-					["helm_ls"] = function()
-						lspconfig.helm_ls.setup({
-							capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities()),
+					helm_ls = function()
+            -- stylua: ignore
+						local capabilities = vim.tbl_deep_extend(
+              "force",
+              vim.lsp.protocol.make_client_capabilities(),
+              lspcmp.default_capabilities()
+            )
+
+						local config = {
+							capabilities = capabilities,
 							settings = {
-								["helm-ls"] = {
+								helm_ls = {
 									yamlls = {
 										path = "yaml-language-server",
 									},
 								},
 							},
-						})
-					end,
-					["rust_analyzer"] = function()
-						lspconfig.rust_analyzer.setup({
-							cmd = { "rust-analyzer" },
-							settings = {
-								["rust_analyzer"] = {},
-							},
-						})
+						}
+						lspconfig.helm_ls.setup(config)
 					end,
 				},
 			})
@@ -187,18 +187,11 @@ return {
 				end,
 			})
 
-			local float = { border = "rounded" }
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, float)
-
-			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, float)
-
 			vim.diagnostic.config({
-				float = float,
-				virtual_text = true,
-				signs = true,
+				severity_sort = false,
+				signs = false,
 				underline = true,
 				update_in_insert = false,
-				severity_sort = false,
 			})
 		end,
 	},

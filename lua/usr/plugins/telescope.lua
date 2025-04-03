@@ -28,6 +28,7 @@ return {
 	},
 	opts = {
 		defaults = {
+			border = false,
 			file_ignore_patterns = {
 				"^.git/",
 				"^vendor/",

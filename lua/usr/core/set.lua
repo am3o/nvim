@@ -60,3 +60,5 @@ vim.opt.signcolumn = "yes"
 -- shell options
 vim.opt.shell = "/opt/homebrew/bin/zsh"
 vim.opt.showmode = false
+
+vim.opt.winborder = "rounded"
