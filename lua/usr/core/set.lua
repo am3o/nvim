@@ -48,6 +48,9 @@ vim.opt.scrolloff = 10
 vim.opt.isfname:append("@-@")
 vim.opt.inccommand = "split"
 
+-- style
+vim.opt.winborder = "rounded"
+
 -- update intervals
 vim.opt.updatetime = 200
 vim.opt.timeoutlen = 300
@@ -60,5 +63,3 @@ vim.opt.signcolumn = "yes"
 -- shell options
 vim.opt.shell = "/opt/homebrew/bin/zsh"
 vim.opt.showmode = false
-
-vim.opt.winborder = "rounded"
