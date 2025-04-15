@@ -160,14 +160,6 @@ return {
 
 					vim.keymap.set("n", "<leader>od", vim.diagnostic.open_float, { remap = false })
 
-					vim.keymap.set("n", "[d", function()
-						vim.diagnostic.goto_next()
-					end, { remap = false })
-
-					vim.keymap.set("n", "]d", function()
-						vim.diagnostic.goto_prev()
-					end, { remap = false })
-
 					vim.keymap.set("i", "<C-h>", function()
 						vim.lsp.buf.signature_help()
 					end, { remap = false })
