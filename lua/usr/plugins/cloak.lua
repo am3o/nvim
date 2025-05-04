@@ -6,7 +6,6 @@ return {
 		"BufReadPre *.envrc",
 	},
 	opts = {
-		enabled = true,
 		cloak_character = "*",
 		highlight_group = "Comment",
 		cloak_length = nil, -- Provide a number if you want to hide the true length of the value.
