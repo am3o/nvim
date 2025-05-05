@@ -3,24 +3,36 @@ return {
 	enabled = true,
 	lazy = true,
 	branch = "harpoon2",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
 	keys = {
-		{ "<leader>a", desc = "[A]dd to harpoon" },
-		{ "<C-e>", desc = "View harpoon ui" },
+		{
+			"<leader>a",
+			function()
+				require("harpoon"):list():add()
+			end,
+			desc = "[A]dd to harpoon",
+		},
+		{
+			"<C-e>",
+			function()
+				local harpoon = require("harpoon")
+				harpoon.ui:toggle_quick_menu(harpoon:list())
+			end,
+			desc = "View harpoon ui",
+		},
+		{
+			"<C-h>",
+			function()
+				require("harpoon"):list():next()
+			end,
+			desc = "Next element in the harpoon list",
+		},
+		{
+			"<C-g>",
+			function()
+				require("harpoon"):list():prev()
+			end,
+			desc = "Next element in the harpoon list",
+		},
 	},
-	config = function()
-		local harpoon = require("harpoon")
-
-		vim.keymap.set("n", "<leader>a", function()
-			harpoon:list():add()
-		end)
-
-		vim.keymap.set("n", "<C-e>", function()
-			harpoon.ui:toggle_quick_menu(harpoon:list())
-		end)
-
-		harpoon:setup()
-	end,
+	opts = {},
 }
