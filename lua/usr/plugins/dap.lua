@@ -43,7 +43,10 @@ return {
 	{
 		"leoluz/nvim-dap-go",
 		enabled = true,
-		ft = { "go", "gomod" },
+		ft = {
+			"go",
+			"gomod",
+		},
 		keys = {
 			{ "<leader>rd", desc = "[R]un [D]ebugger" },
 			{ "<leader>rdt", desc = "[R]un [D]ebugger [T]est" },
