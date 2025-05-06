@@ -20,14 +20,14 @@ return {
 			desc = "View harpoon ui",
 		},
 		{
-			"<C-h>",
+			"<C-z>",
 			function()
 				require("harpoon"):list():next()
 			end,
 			desc = "Next element in the harpoon list",
 		},
 		{
-			"<C-g>",
+			"<C-t>",
 			function()
 				require("harpoon"):list():prev()
 			end,
