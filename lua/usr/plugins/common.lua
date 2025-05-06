@@ -9,7 +9,6 @@ return {
 		"echasnovski/mini.icons",
 		enabled = true,
 		lazy = true,
-		version = false,
 		opts = {
 			style = "glyph",
 		},
