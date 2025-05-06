@@ -3,9 +3,33 @@ return {
 	enabled = true,
 	event = "BufReadPost",
 	keys = {
-		{ "<leader>gp", desc = "[G]it [P]review" },
-		{ "<leader>gb", desc = "[G]it [B]lame" },
-		{ "<leader>gd", desc = "[G]it [D]iff" },
+		{
+			"<leader>gp",
+			function()
+				if vim.fn.isdirectory(".git") == 1 then
+					require("gitsigns").preview_hunk()
+				end
+			end,
+			desc = "[G]it [P]review",
+		},
+		{
+			"<leader>gb",
+			function()
+				if vim.fn.isdirectory(".git") == 1 then
+					require("gitsigns").toggle_current_line_blame()
+				end
+			end,
+			desc = "[G]it [B]lame",
+		},
+		{
+			"<leader>gd",
+			function()
+				if vim.fn.isdirectory(".git") == 1 then
+					require("gitsigns").diffthis()
+				end
+			end,
+			desc = "[G]it [D]iff",
+		},
 	},
 	opts = {
 		signs = {
@@ -16,28 +40,27 @@ return {
 			changedelete = { text = "~" },
 			untracked = { text = "┆" },
 		},
-		signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-		numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
-		linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-		word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
+		signcolumn = true,
+		numhl = false,
+		linehl = false,
+		word_diff = false,
 		watch_gitdir = {
 			follow_files = true,
 		},
 		attach_to_untracked = true,
-		current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+		current_line_blame = false,
 		current_line_blame_opts = {
 			virt_text = true,
-			virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+			virt_text_pos = "right_align",
 			delay = 100,
 			ignore_whitespace = false,
 		},
 		current_line_blame_formatter = " <author_time:%Y-%m-%d>, <author> - <summary>",
 		sign_priority = 6,
 		update_debounce = 100,
-		status_formatter = nil, -- Use default
-		max_file_length = 40000, -- Disable if file is longer than this (in lines)
+		status_formatter = nil,
+		max_file_length = 40000,
 		preview_config = {
-			-- Options passed to nvim_open_win
 			border = "rounded",
 			style = "minimal",
 			relative = "cursor",
@@ -45,14 +68,4 @@ return {
 			col = 1,
 		},
 	},
-	config = function(_, opts)
-		local gitSigns = require("gitsigns")
-		gitSigns.setup(opts)
-
-		if vim.fn.isdirectory(".git") == 1 then
-			vim.keymap.set("n", "<leader>gp", gitSigns.preview_hunk, { silent = true, desc = "[G]it [P]review" })
-			vim.keymap.set("n", "<leader>gb", gitSigns.toggle_current_line_blame, { silent = true, desc = "[G]it [B]lame" })
-			vim.keymap.set("n", "<leader>gd", gitSigns.diffthis)
-		end
-	end,
 }
