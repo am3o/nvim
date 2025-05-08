@@ -17,7 +17,7 @@ return {
 			},
 			{
 				"<leader>gfs",
-				"<CMD>GoFillStruct<cr",
+				"<CMD>GoFillStruct<cr>",
 				{ desc = "Generate struct attributes" },
 			},
 			{
