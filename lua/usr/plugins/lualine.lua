@@ -35,8 +35,7 @@ return {
 		extensions = {},
 	},
 	config = function(_, opts)
-		local trouble = require("trouble")
-		local symbols = trouble.statusline({
+		local symbols = require("trouble").statusline({
 			mode = "lsp_document_symbols",
 			groups = {},
 			title = false,
@@ -49,6 +48,7 @@ return {
 			symbols.get,
 			cond = symbols.has,
 		})
+
 		require("lualine").setup(opts)
 	end,
 }
