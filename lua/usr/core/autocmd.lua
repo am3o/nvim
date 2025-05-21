@@ -8,6 +8,7 @@ local header, content =
 		"\n\t\tProgress is our path, complexity \n\t\tbuilds the bridge, simplicity waits.",
 		"\n\t\tIf you need a machine and don’t buy it, \n\t\tthen you will ultimately find that you have \n\t\tpaid for it and don’t have it.",
 		"\n\t\t Muss net schmecke, muss wirke.",
+		"\n\t\t You miss 100% of the shots you don't take. -Wayne Gretzky",
 	}
 
 -- TODO: extract the daily tip to a dedicated plugin to configure them and be able to disable it.
