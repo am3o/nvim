@@ -23,7 +23,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.keymap.set("n", "<leader>tpm", "<cmd>Lazy<cr>", { silent = true })
-vim.keymap.set("n", "<leader>tm", "<cmd>Mason<cr>", { silent = true })
 
 require("lazy").setup({
 	spec = {
