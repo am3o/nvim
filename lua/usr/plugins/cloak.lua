@@ -1,6 +1,7 @@
 return {
 	"laytan/cloak.nvim",
 	enabled = true,
+	lazy = true,
 	event = {
 		"BufReadPre *.env",
 		"BufReadPre *.envrc",
