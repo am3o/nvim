@@ -4,6 +4,22 @@ vim.lsp.enable({
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
+		local opts = {
+			title = "native LSP",
+			icon = "🔧",
+			render = "default",
+			stages = "slide",
+		}
+
+		local client = vim.lsp.get_client_by_id(event.data.client_id)
+		if client then
+			vim.notify("LSP attached: " .. client.name, vim.log.levels.INFO, opts)
+		end
+	end,
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(event)
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, { remap = false })
 		vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { remap = false })
 
