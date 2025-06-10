@@ -1,5 +1,4 @@
 local modules = {
-	"usr.lazy",
 	"usr.core",
 }
 

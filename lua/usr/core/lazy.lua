@@ -40,5 +40,14 @@ require("lazy").setup({
 		cache = {
 			enabled = true,
 		},
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
 	},
 })
