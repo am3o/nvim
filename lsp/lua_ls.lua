@@ -12,14 +12,7 @@ return {
 		"stylua.toml",
 	},
 	on_init = function()
-		local opts = {
-			title = "native LSP",
-			icon = "🔧",
-			render = "default",
-			stages = "slide",
-		}
-
-		vim.notify("lua_ls now runs in the background", vim.log.levels.INFO, opts)
+		-- Debuging specific settings of the lsp
 	end,
 	single_file_support = true,
 	log_level = vim.lsp.protocol.MessageType.Warning,
