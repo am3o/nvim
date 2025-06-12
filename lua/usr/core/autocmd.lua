@@ -25,10 +25,10 @@ local message = {
 		content = "A rooling stone gathers no moss",
 	},
 	{
-		content = "Oh Captain, Oh Captain",
+		content = "Oh Captain, Oh Captain! 👨‍✈️",
 	},
 	{
-		content = "Look at me. I'M the captain now ✌️",
+		content = "Look at me. I'M THE CAPTAIN NOW ✌️",
 	},
 }
 
@@ -36,7 +36,7 @@ local message = {
 --- @param rule string
 --- @param length number
 function Format(value, rule, length)
-	local content = {}
+	local content = { "\n\t\t" }
 	for str in string.gmatch(value, "[^" .. rule .. "]+") do
 		table.insert(content, str)
 		if #content % length == 0 then
@@ -61,7 +61,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 			stages = "slide",
 		}
 
-		vim.notify_once(Format(msg.content, "%s", 7), vim.log.levels.INFO, opts)
+		vim.notify_once(Format(msg.content, "%s", 9), vim.log.levels.INFO, opts)
 	end,
 	group = vim.api.nvim_create_augroup("formating", { clear = true }),
 	buffer = 0,
