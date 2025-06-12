@@ -51,13 +51,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("formating.native.lsp", { clear = false }),
         buffer = event.buf,
         callback = function()
-          local opts = {
-            title  = "native LSP",
-            render = "compact",
-            stages = "slide",
-          }
+          -- local opts = {
+          --   title  = "native LSP",
+          --   render = "compact",
+          --   stages = "slide",
+          -- }
 
-          vim.notify("auto-format... ", vim.log.levels.INFO, opts)
+          -- vim.notify("auto-format... ", vim.log.levels.INFO, opts)
           vim.lsp.buf.format({
             bufnr = event.buf,
             id = client.id,
