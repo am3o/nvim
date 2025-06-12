@@ -20,14 +20,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		if client then
 			vim.notify("LSP attached: " .. client.name, vim.log.levels.INFO, opts)
 		end
+
+    local builtin = require("telescope.builtin")
+
+    vim.keymap.set("n", "gd", builtin.lsp_definitions, { remap = false })
+		vim.keymap.set("n", "gr", builtin.lsp_references, { remap = false })
+		vim.keymap.set("n", "gi", builtin.lsp_implementations, { remap = false })
+		vim.keymap.set("n", "<leader>D", builtin.lsp_type_definitions, { remap = false })
+		vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { remap = false })
+
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, { remap = false })
+		vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { remap = false })
+
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { remap = false })
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { remap = false })
+
+		vim.keymap.set("n", "<leader>od", vim.diagnostic.open_float, { remap = false })
 	end,
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, { remap = false })
-		vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { remap = false })
-
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
 		if client and client.server_capabilities.documentHighlightProvider then
 			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -44,12 +57,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.diagnostic.config({
-	virtual_text = {
-		spacing = 4,
-	},
-	virtual_lines = {
-		current_line = true,
-	},
+  signs = true,
 	underline = true,
 	update_in_insert = false,
 	severity_sort = true,
