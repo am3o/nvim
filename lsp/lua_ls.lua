@@ -1,3 +1,15 @@
+---@brief
+---
+--- https://github.com/luals/lua-language-server
+---
+--- Lua language server.
+---
+--- `lua-language-server` can be installed by following the instructions [here](https://luals.github.io/#neovim-install).
+---
+--- See `lua-language-server`'s [documentation](https://luals.github.io/wiki/settings/) for an explanation of the above fields:
+--- * [Lua.runtime.path](https://luals.github.io/wiki/settings/#runtimepath)
+--- * [Lua.workspace.library](https://luals.github.io/wiki/settings/#workspacelibrary)
+
 return {
 	cmd = { "lua-language-server" },
 	filetypes = { "lua" },
