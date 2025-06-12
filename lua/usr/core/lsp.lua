@@ -1,5 +1,10 @@
 vim.lsp.enable({
+	"bashls",
+	"gopls",
+	"helm_ls",
 	"lua_ls",
+	"terraform_lsp",
+	"ts_ls",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
