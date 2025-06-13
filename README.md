@@ -1,4 +1,7 @@
-<h1 align="center">nVim</h1>
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/neovim/neovim.github.io/master/logos/neovim-logo-300x87.png" alt="Neovim">
+</h1>
+
 <p align="center"><sup>👷🏗️ Collection of vim settings for a personal development environment!</sup></p>
 
 <div align="center">
