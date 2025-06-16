@@ -3,6 +3,7 @@ vim.lsp.enable({
   "gopls",
   "helm_ls",
   "lua_ls",
+  "markdown_oxide",
   "terraform_lsp",
   "ts_ls",
 })
