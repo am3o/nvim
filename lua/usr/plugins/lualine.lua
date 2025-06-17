@@ -29,7 +29,10 @@ return {
       lualine_z = {
         {
           "location",
-          separator = { left = "", right = "" },
+          separator = {
+            left = "",
+            right = "",
+          },
         },
       },
     },
@@ -68,7 +71,6 @@ return {
         icon, _ = devicons.get_icon_by_filetype(vim.bo.filetype, { default = true })
       end
 
-      -- Choose color based on LSP client presence
       local color = (#clients > 0) and "DiagnosticOk" or "Comment"
 
       return string.format("%%#%s#%s %%*", color, icon)
@@ -76,7 +78,9 @@ return {
 
     table.insert(opts.sections.lualine_y, {
       lsp_status,
-      separator = {},
+      separator = {
+        -- left = "",
+      },
     })
 
     require("lualine").setup(opts)
