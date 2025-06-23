@@ -11,19 +11,20 @@ vim.lsp.enable({
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("keymap.native.lsp", {}),
   callback = function()
-    local builtin = assert(require("telescope.builtin"))
+    local builtin = assert(vim.lsp.buf)
 
-    vim.keymap.set("n", "gd", builtin.lsp_definitions, { remap = false })
-    vim.keymap.set("n", "gr", builtin.lsp_references, { remap = false })
-    vim.keymap.set("n", "gi", builtin.lsp_implementations, { remap = false })
-    vim.keymap.set("n", "<leader>D", builtin.lsp_type_definitions, { remap = false })
-    vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { remap = false })
+    vim.keymap.set("n", "gd", builtin.definition, { remap = false })
+    vim.keymap.set("n", "gr", builtin.references, { remap = false })
+    vim.keymap.set("n", "gi", builtin.implementation, { remap = false })
 
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, { remap = false })
-    vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { remap = false })
+    vim.keymap.set("n", "<leader>D", builtin.type_definition, { remap = false })
+    vim.keymap.set("n", "<leader>ds", builtin.type_definition, { remap = false })
 
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { remap = false })
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { remap = false })
+    vim.keymap.set("n", "K", builtin.hover, { remap = false })
+    vim.keymap.set("i", "<C-k>", builtin.signature_help, { remap = false })
+
+    vim.keymap.set("n", "<leader>ca", builtin.code_action, { remap = false })
+    vim.keymap.set("n", "<leader>rn", builtin.rename, { remap = false })
 
     vim.keymap.set("n", "<leader>od", vim.diagnostic.open_float, { remap = false })
   end,
@@ -52,13 +53,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("formating.native.lsp", { clear = false }),
         buffer = event.buf,
         callback = function()
-          -- local opts = {
-          --   title  = "native LSP",
-          --   render = "compact",
-          --   stages = "slide",
-          -- }
-
-          -- vim.notify("auto-format... ", vim.log.levels.INFO, opts)
           vim.lsp.buf.format({
             bufnr = event.buf,
             id = client.id,
@@ -78,12 +72,12 @@ vim.diagnostic.config({
 })
 
 -- Toggle virtual_text off when on the line with the error
--- vim.api.nvim_create_autocmd("CursorMoved", {
--- 	callback = function()
--- 		local current_line = vim.api.nvim_win_get_cursor(0)[1] - 1
--- 		local diagnostics = vim.diagnostic.get(0, { lnum = current_line })
--- 		vim.diagnostic.config({
--- 			virtual_text = vim.tbl_isempty(diagnostics) and { spacing = 0, prefix = "●" } or false,
--- 		})
--- 	end,
--- })
+vim.api.nvim_create_autocmd("CursorMoved", {
+  callback = function()
+    local current_line = vim.api.nvim_win_get_cursor(0)[1] - 1
+    local diagnostics = vim.diagnostic.get(0, { lnum = current_line })
+    vim.diagnostic.config({
+      virtual_text = vim.tbl_isempty(diagnostics) and { spacing = 0, prefix = "●" } or false,
+    })
+  end,
+})
