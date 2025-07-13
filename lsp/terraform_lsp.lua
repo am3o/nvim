@@ -8,8 +8,9 @@
 ---
 --- From https://github.com/hashicorp/terraform-ls#terraform-ls-vs-terraform-lsp:
 
+---@type vim.lsp.Config
 return {
-	cmd = { "terraform-lsp" },
-	filetypes = { "terraform", "hcl" },
-	root_markers = { ".terraform", ".git" },
+  cmd = { "terraform-lsp" },
+  filetypes = { "terraform", "hcl" },
+  root_markers = { ".terraform", ".git" },
 }

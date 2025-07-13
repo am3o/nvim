@@ -8,6 +8,8 @@
 --- Inspired by and compatible with Obsidian.
 ---
 --- Check the readme to see how to properly setup.
+
+---@type vim.lsp.Config
 return {
   root_markers = { '.git', '.obsidian', '.moxide.toml' },
   filetypes = { 'markdown' },
