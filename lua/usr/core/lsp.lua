@@ -8,8 +8,12 @@ vim.lsp.enable({
   "ts_ls",
 })
 
+-- vim.keymap.set("n", "<leader>d", function()
+--   vim.diagnostic.setqflist({ open = false })
+--   pcall(vim.cmd.cc)
+-- end, { remap = false })
+
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("keymap.native.lsp", {}),
   callback = function()
     local builtin = assert(vim.lsp.buf)
 
@@ -31,7 +35,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("native.lsp", {}),
   callback = function(event)
     local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
     if client and client.server_capabilities.documentHighlightProvider then
