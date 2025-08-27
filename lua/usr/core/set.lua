@@ -49,7 +49,9 @@ vim.opt.isfname:append("@-@")
 vim.opt.inccommand = "split"
 
 -- style
-vim.opt.winborder = "rounded"
+if vim.version().minor >= 11 then
+  vim.opt.winborder = "rounded"
+end
 
 -- update intervals
 vim.opt.updatetime = 200
