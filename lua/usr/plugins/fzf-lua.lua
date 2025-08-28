@@ -7,6 +7,13 @@ return {
   },
 
   opts = {
+    defaults = {
+      keymap = {
+        fzf = {
+          ["ctrl-q"] = "select-all+accept",
+        },
+      },
+    },
     files = {
       no_ignore = true,
     },
