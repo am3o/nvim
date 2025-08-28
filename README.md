@@ -11,17 +11,17 @@
   <img src="https://img.shields.io/github/last-commit/am3o/nvim?style=for-the-badge">
 </div>
 
-## The Law of the Config
+<p align="center"><b>The Law of the Configy</b></p>
 
-### §1 - Ownership
-This is my NeoVim config. There are many like it, but this one is mine. I must master it as I must master my craft.
+<p align="center"><b>§1 - Ownership</b></p>
+This is my NeoVim config. There are many like it, but this one is mine. I must master it as I must master my craft.</p>
 
-### §2 - Bond
+<p align="center"><b>§2 - Bond</b></p>
 My config, without me, is just Lua. Without my config, I am just slower.
 I must fight the bugs harder than the bugs fight me.
-I must map keys faster than I can forget them.
+I must map keys faster than I can forget them.</p>
 
-### §3 - Dependency
+<p align="center"><b>§3 - Dependency</b></p>
 My config and I know that what counts in code is not the lines we write,
 nor the shortcuts we map, nor the plugins we load.
 We know that it is the flow counts. We will flow.
