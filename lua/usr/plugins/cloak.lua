@@ -5,6 +5,8 @@ return {
   event = {
     "BufReadPre *.env",
     "BufReadPre *.envrc",
+    "BufReadPre *.credential",
+    "BufReadPre *.credentials",
   },
 
   ---@module 'cloak'
@@ -19,6 +21,8 @@ return {
         file_pattern = {
           ".envrc",
           ".env",
+          ".credential",
+          ".credentials",
         },
         cloak_pattern = "=.+",
       },
