@@ -7,11 +7,9 @@ return {
     keymap = {
       preset = 'enter',
     },
-
     appearance = {
       nerd_font_variant = 'mono',
     },
-
     completion = {
       menu = {
         scrollbar = false,
@@ -20,7 +18,6 @@ return {
         auto_show = false,
       },
     },
-
     sources = {
       default = {
         'lsp',
@@ -28,7 +25,6 @@ return {
         'buffer',
       },
     },
-
     fuzzy = {
       implementation = "prefer_rust_with_warning",
       sorts = {
@@ -37,6 +33,5 @@ return {
       }
     },
   },
-
   opts_extend = { "sources.default" },
 }
