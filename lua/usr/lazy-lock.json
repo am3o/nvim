@@ -4,7 +4,7 @@
   "cloak.nvim": { "branch": "main", "commit": "648aca6d33ec011dc3166e7af3b38820d01a71e4" },
   "delimitMate": { "branch": "master", "commit": "becbd2d353a2366171852387288ebb4b33a02487" },
   "devicon-colorscheme.nvim": { "branch": "main", "commit": "de03970159817b40d66945849e9ac3380f58b67f" },
-  "fzf-lua": { "branch": "main", "commit": "96dede0bca5cc24868df7c8b46b5a32b89c2f19d" },
+  "fzf-lua": { "branch": "main", "commit": "091bcd0c925199b1371ea81ec79278611d299627" },
   "gitsigns.nvim": { "branch": "main", "commit": "6e3c66548035e50db7bd8e360a29aec6620c3641" },
   "go.nvim": { "branch": "master", "commit": "9382e23d46eea94e08da0b56d8a416461fdb294d" },
   "guihua.lua": { "branch": "master", "commit": "87bea7b98429405caf2a0ce4d029b027bb017c70" },
