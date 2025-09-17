@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/github/last-commit/am3o/nvim?style=for-the-badge">
 </div>
 
-<p align="center"><b>The Law of the Configy</b></p>
+<p align="center"><b>The Law of the Config</b></p>
 
 <p align="center"><b>§1 - Ownership</b></p>
 This is my NeoVim config. There are many like it, but this one is mine. I must master it as I must master my craft.</p>
