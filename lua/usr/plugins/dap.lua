@@ -82,13 +82,14 @@ return {
       "gomod",
     },
     keys = {
-      { "<leader>rdt", desc = "[R]un [D]ebugger [T]est" },
+      {
+        "<leader>rdt",
+        function()
+          return require("dap-go").debug_test
+        end,
+        desc = "[R]un [D]ebugger [T]est"
+      }
     },
-    config = function()
-      local dapgo = require("dap-go")
-
-      dapgo.setup()
-      vim.keymap.set("n", "<leader>rdt", dapgo.debug_test, { silent = true, desc = "[R]un [D]ebugger [T]est" })
-    end,
+    opts = {}
   },
 }
