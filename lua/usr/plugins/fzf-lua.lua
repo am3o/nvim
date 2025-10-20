@@ -8,14 +8,14 @@ return {
 
   opts = {
     defaults = {
-      keymap = {
+      file_icons = "mini",
+      no_ignore  = true,
+      rg_opts    = [[--color=never --hidden --line-number --column -g "!**/.git/*"]],
+      keymap     = {
         fzf = {
           ["ctrl-q"] = "select-all+accept",
         },
       },
-    },
-    files = {
-      no_ignore = true,
     },
     winopts = {
       preview = {
