@@ -10,7 +10,7 @@ return {
     defaults = {
       file_icons = "mini",
       no_ignore  = true,
-      rg_opts    = [[--color=never --hidden --line-number --column -g "!**/.git/*"]],
+      rg_opts    = [[--color=never --hidden --line-number --column -g "!**/.git/*" -g "!**/.terraform/*"]],
       keymap     = {
         fzf = {
           ["ctrl-q"] = "select-all+accept",
