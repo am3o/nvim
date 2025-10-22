@@ -34,8 +34,8 @@ if vim.version().minor >= 11 then
   -- vim.api.nvim_create_autocmd('LspAttach', {
   --   callback = function(ev)
   --     local client = vim.lsp.get_client_by_id(ev.data.client_id)
-  --     if client and client:supports_method('vim.lsp.protocol.Methods.textDocument_completion') then
-  --       vim.opt.completeopt = { 'menu', 'menuone', 'noinsert', 'fuzzy', 'popup' }
+  --     if client and client:supports_method("vim.lsp.protocol.Methods.textDocument_completion") then
+  --       vim.opt.completeopt = { "menuone", "noselect", "popup" }
   --       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
   --       vim.keymap.set('i', '<C-Space>', function()
   --         vim.lsp.completion.get()
@@ -61,7 +61,7 @@ if vim.version().minor >= 11 then
         })
       end
 
-      if client:supports_method('textDocument/formatting') then
+      if client:supports_method("textDocument/formatting") then
         vim.api.nvim_create_autocmd("BufWritePre", {
           group = vim.api.nvim_create_augroup("formating.native.lsp", { clear = false }),
           buffer = event.buf,
@@ -89,12 +89,13 @@ vim.api.nvim_create_autocmd("CursorMoved", {
   end,
 })
 
--- vim.diagnostic.config({
---   signs = true,
---   underline = true,
---   update_in_insert = false,
---   severity_sort = true,
---   -- virtual_lines = {
---   --   current_line = true,
---   -- }
--- })
+
+vim.diagnostic.config({
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  virtual_lines = {
+    current_line = true,
+  }
+})
