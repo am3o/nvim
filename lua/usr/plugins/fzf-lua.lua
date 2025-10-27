@@ -30,7 +30,7 @@ return {
 
     vim.keymap.set("n", "<leader>saf", fzf.files, { desc = "[S]earch [A]round [F]iles" })
     vim.keymap.set("n", "<leader>sif", fzf.live_grep, { desc = "[S]earch [I]nner [F]iles" })
-    vim.keymap.set("n", "<leader>sg", fzf.git_files, { desc = "[S]earch [G]it files" })
+    vim.keymap.set("n", "<leader>sg", fzf.git_status, { desc = "[S]earch [G]it status" })
     vim.keymap.set("n", "<leader>sb", fzf.buffers, { desc = "[S]earch [B]uffers" })
     vim.keymap.set("n", "<leader>sh", fzf.help_tags, { desc = "[S]earch [H]elptags" })
     vim.keymap.set("n", "<leader>sm", fzf.manpages, { desc = "[S]earch [M]an-Pages" })
