@@ -7,7 +7,7 @@ if vim.version().minor >= 11 then
     "markdown_oxide",
     "terraformls",
     "ts_ls",
-    "yamlls"
+    "yamlls",
   })
 
   vim.api.nvim_create_autocmd("LspAttach", {
