@@ -15,7 +15,7 @@ return {
         scrollbar = false,
       },
       documentation = {
-        auto_show = false,
+        auto_show = true,
       },
     },
     sources = {
