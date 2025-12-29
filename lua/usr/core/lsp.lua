@@ -5,6 +5,7 @@ if vim.version().minor >= 11 then
     "helm_ls",
     "lua_ls",
     "markdown_oxide",
+    "pylsp",
     "terraformls",
     "ts_ls",
   })
