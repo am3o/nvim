@@ -5,7 +5,7 @@ return {
   dependencies = {
     "nvzone/volt",
   },
-  cmd = { "Wrapped" },
+  cmd = { "NvimWrapped" },
   opts = {
     path = vim.fn.stdpath("config"),
     border = true,
